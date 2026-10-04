@@ -12,14 +12,14 @@ export default function Footer() {
   };
 
   return (
-    <footer className="border-t border-white/10 bg-[#070D18] relative z-10 pt-16 pb-12">
+    <footer className="border-t border-white/10 bg-[#030611] relative z-10 pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-white/10">
           {/* Brand Info */}
           <div className="md:col-span-6 space-y-4">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-cyan-500 p-[1px]">
-                <div className="w-full h-full bg-[#0F172A] rounded-[11px] flex items-center justify-center">
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-cyan-500 p-[1px]">
+                <div className="w-full h-full bg-[#080D1A] rounded-[11px] flex items-center justify-center">
                   <span className="font-mono font-bold text-xs text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-cyan-300">
                     AR
                   </span>
@@ -36,7 +36,7 @@ export default function Footer() {
             </div>
 
             <p className="text-xs text-slate-400 max-w-sm leading-relaxed">
-              Focused on Core Java, object-oriented programming, modern web technologies, and practical AI applications. Built with Next.js, TypeScript, and Tailwind CSS.
+              Focused on Core Java, object-oriented programming, modern web technologies, and practical AI applications. Built with Next.js 16, TypeScript, and Tailwind CSS.
             </p>
 
             <div className="text-xs text-slate-400 space-y-1 pt-1 font-mono">
@@ -81,7 +81,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Verified Platforms & Links */}
+          {/* Platforms & Verification */}
           <div className="md:col-span-3 space-y-3">
             <h4 className="text-xs font-mono font-semibold text-white uppercase tracking-wider">
               Platforms & Verification

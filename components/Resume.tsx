@@ -20,10 +20,10 @@ export default function Resume({ onOpenResume }: ResumeProps) {
   return (
     <section className="py-20 relative overflow-hidden">
       {/* Background radial glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-r from-indigo-600/15 via-purple-600/15 to-cyan-500/15 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-r from-indigo-600/15 via-purple-600/15 to-cyan-500/15 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="glass-panel rounded-3xl p-8 sm:p-12 border border-white/15 shadow-2xl relative overflow-hidden text-center md:text-left">
+        <div className="bento-card p-8 sm:p-12 border-white/15 text-center md:text-left relative overflow-hidden">
           {/* Top highlight bar */}
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400" />
 
@@ -39,7 +39,7 @@ export default function Resume({ onOpenResume }: ResumeProps) {
                 Want to know more about my journey?
               </h2>
 
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl">
+              <p className="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed max-w-xl">
                 View my education, technical skills, internships, projects, and training experience.
               </p>
 
@@ -67,7 +67,7 @@ export default function Resume({ onOpenResume }: ResumeProps) {
               <a
                 href="/resume.pdf"
                 download="Aathidasan_R_Resume.pdf"
-                className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 text-white font-semibold text-sm shadow-lg shadow-indigo-600/30 transition-all hover:shadow-indigo-600/50 flex items-center justify-center gap-2 active:scale-95 text-center"
+                className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 text-white font-semibold text-xs sm:text-sm shadow-lg shadow-indigo-600/30 transition-all hover:shadow-indigo-600/50 flex items-center justify-center gap-2 active:scale-95 text-center"
               >
                 <Download className="w-4 h-4" />
                 <span>Download Resume</span>
@@ -76,7 +76,7 @@ export default function Resume({ onOpenResume }: ResumeProps) {
               {onOpenResume && (
                 <button
                   onClick={onOpenResume}
-                  className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold text-sm border border-white/15 transition-all flex items-center justify-center gap-2 active:scale-95"
+                  className="px-6 py-3.5 rounded-xl bg-white/[0.08] hover:bg-white/[0.14] text-white font-semibold text-xs sm:text-sm border border-white/15 transition-all flex items-center justify-center gap-2 active:scale-95"
                 >
                   <Eye className="w-4 h-4 text-cyan-400" />
                   <span>Preview in Browser</span>

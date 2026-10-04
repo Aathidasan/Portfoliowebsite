@@ -6,24 +6,29 @@ import {
   Calendar,
   CheckCircle2,
   Sparkles,
-  Award,
-  BookOpen,
   Building2,
-  Code,
+  Cpu,
   Layers,
-  ArrowUpRight,
+  MapPin,
+  BookOpen,
+  Terminal,
+  ArrowRight,
 } from "lucide-react";
-import { PERSONAL_INFO, STATISTICS, EDUCATION } from "@/lib/constants";
+import { PERSONAL_INFO, EDUCATION, EXPERIENCES } from "@/lib/constants";
 
 export default function About() {
+  const trainingItem = EXPERIENCES.find((e) => e.type === "training");
+  const internships = EXPERIENCES.filter((e) => e.type === "internship");
+
   return (
     <section id="about" className="py-20 sm:py-28 relative overflow-hidden">
       {/* Background radial accent */}
       <div className="absolute top-1/2 -left-40 w-96 h-96 bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-cyan-600/10 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center sm:text-left mb-12 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-mono mb-3">
             <Sparkles className="w-3 h-3 text-cyan-400" />
             <span>BACKGROUND & ACADEMICS</span>
@@ -31,96 +36,166 @@ export default function About() {
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             About <span className="gradient-accent">Me</span>
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base max-w-2xl mt-2">
-            A motivated fresher committed to building software solutions with solid Java fundamentals, real internship learning, and practical AI implementations.
+          <p className="text-slate-400 text-xs sm:text-sm md:text-base mt-2">
+            A motivated fresher committed to building software solutions with solid Java fundamentals, verified internships, and practical AI implementations.
           </p>
         </div>
 
-        {/* Two-Column Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-          {/* Left Column: Narrative Content */}
-          <div className="lg:col-span-6 space-y-6">
-            <div className="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
-              <h3 className="text-xl font-bold text-white flex items-center gap-2">
-                <span>Passionate Developer & Continuous Learner</span>
-              </h3>
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6">
+          {/* Bento Card 1: Narrative Journey (lg:col-span-7) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="lg:col-span-7 bento-card p-6 sm:p-8 flex flex-col justify-between"
+          >
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <span className="w-2.5 h-2.5 rounded-full bg-indigo-400" />
+                <h3 className="text-xl font-bold text-white tracking-tight">
+                  Passionate Developer & Continuous Learner
+                </h3>
+              </div>
 
-              <div className="space-y-4 text-slate-300 text-sm leading-relaxed">
+              <div className="space-y-4 text-slate-300 text-xs sm:text-sm leading-relaxed">
                 <p>
                   I am a fresh Information Technology graduate from{" "}
                   <strong className="text-white font-semibold">PRIST University, Thanjavur (Class of 2026)</strong>
-                  . My core objective is to apply my programming logic, web development knowledge, and artificial intelligence curiosity to solve practical computational problems.
+                  . My focus is centered on software development, object-oriented design, relational databases, and applying modern AI solutions to real-world tasks.
                 </p>
 
                 <p>
-                  To elevate my technical caliber, I am currently undergoing intensive{" "}
+                  To transition smoothly from academic theory to industry-standard engineering, I am currently enrolled in the intensive{" "}
                   <strong className="text-indigo-300 font-semibold">
-                    6-Month Java Development Training at QSpiders, Velachery (Chennai)
+                    6-Month Java Development Course at QSpiders, Velachery (Chennai)
                   </strong>
-                  . This structured immersion covers Core Java, Object-Oriented Programming (OOP) paradigms, relational databases, Oracle, and complex SQL data modeling.
+                  . Here, I write structured code, solve data-structure algorithms, and master relational database query optimization.
                 </p>
 
                 <p>
-                  Beyond academic theory, I have gained hands-on practical exposure through dual internships: exploring{" "}
-                  <strong className="text-cyan-300 font-semibold">Artificial Intelligence & computer vision workflows at The Mind IT</strong>{" "}
-                  and modern{" "}
-                  <strong className="text-purple-300 font-semibold">Full Stack web development concepts at Novi Tech</strong>.
+                  Through dual internships at <strong className="text-cyan-300">The Mind IT</strong> and{" "}
+                  <strong className="text-purple-300">Novi Tech</strong>, I have worked directly on AI-driven computer vision and full-stack web applications, sharpening my ability to learn rapidly and contribute effectively.
                 </p>
               </div>
+            </div>
 
-              {/* Truthful Fresher Value Proposition */}
-              <div className="pt-4 border-t border-white/10 space-y-2">
-                <h4 className="text-xs font-mono font-semibold text-slate-400 uppercase tracking-wider">
-                  What I Bring to an Entry-Level Engineering Team
-                </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1 text-xs text-slate-300">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                    <span>Strong Core Java & OOP Mindset</span>
+            {/* Competency Checkmarks */}
+            <div className="mt-6 pt-5 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-slate-300">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                <span>Core Java & OOP Principles</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                <span>SQL & Relational Databases</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                <span>Python & Computer Vision (YOLO)</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                <span>Modern Web & React Components</span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Bento Card 2: Higher Education (lg:col-span-5) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="lg:col-span-5 bento-card p-6 sm:p-7 flex flex-col justify-between"
+          >
+            <div>
+              <div className="flex items-center justify-between pb-4 border-b border-white/10">
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-xl bg-cyan-500/10 border border-cyan-500/25 flex items-center justify-center text-cyan-400">
+                    <GraduationCap className="w-5 h-5" />
                   </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                    <span>SQL & Relational DB Structuring</span>
+                  <div>
+                    <span className="text-[10px] font-mono text-cyan-400 uppercase tracking-wider font-semibold">
+                      Undergraduate Degree
+                    </span>
+                    <h4 className="text-base sm:text-lg font-bold text-white tracking-tight">
+                      {EDUCATION.degree}
+                    </h4>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                    <span>Python & Computer Vision (YOLO/OpenCV)</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                    <span>Eager, fast learner ready for production code</span>
+                </div>
+
+                <span className="font-mono text-xs font-semibold px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
+                  {EDUCATION.year}
+                </span>
+              </div>
+
+              <div className="py-4 space-y-2">
+                <p className="text-xs font-semibold text-slate-200">
+                  {EDUCATION.university} • {EDUCATION.location}
+                </p>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  {EDUCATION.description}
+                </p>
+
+                <div className="space-y-1.5 pt-2">
+                  <span className="text-[11px] font-mono text-slate-500 uppercase tracking-wide">
+                    Core Academic Highlights:
+                  </span>
+                  <div className="space-y-1 text-xs text-slate-300">
+                    {EDUCATION.highlights.map((h, i) => (
+                      <div key={i} className="flex items-center gap-1.5">
+                        <span className="w-1 h-1 rounded-full bg-cyan-400" />
+                        <span>{h}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Current Professional Training Card */}
-            <div className="glass-panel rounded-2xl p-6 border border-indigo-500/25 relative overflow-hidden shadow-xl">
-              <div className="absolute top-0 right-0 bg-indigo-600 text-white text-[10px] font-mono uppercase px-3 py-1 rounded-bl-lg font-bold tracking-wider">
-                Current Training
+            <div className="pt-3 border-t border-white/5 flex flex-wrap gap-1.5">
+              {EDUCATION.skills.map((s) => (
+                <span
+                  key={s}
+                  className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10"
+                >
+                  {s}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Bento Card 3: Current Professional Training (lg:col-span-6) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="lg:col-span-6 bento-card p-6 sm:p-7 flex flex-col justify-between"
+          >
+            <div>
+              <div className="flex items-center justify-between pb-3.5 border-b border-white/10">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/25 flex items-center justify-center text-indigo-400">
+                    <Building2 className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-base font-bold text-white">Java Development Training</h4>
+                    <p className="text-xs text-indigo-300">QSpiders — Velachery, Chennai</p>
+                  </div>
+                </div>
+                <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full bg-indigo-500/15 text-indigo-300 border border-indigo-500/30">
+                  Current Course
+                </span>
               </div>
 
-              <div className="flex items-start gap-3.5">
-                <div className="w-10 h-10 rounded-xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400 flex-shrink-0 mt-0.5">
-                  <Building2 className="w-5 h-5" />
-                </div>
-                <div className="space-y-1">
-                  <h4 className="font-bold text-white text-base">
-                    Java Development Training
-                  </h4>
-                  <p className="text-xs font-semibold text-indigo-300">
-                    QSpiders — Velachery, Chennai
-                  </p>
-                  <p className="text-xs text-slate-400">
-                    6-Month Intensive Course • Active Professional Training
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-4 pt-3 border-t border-white/10">
-                <p className="text-xs text-slate-300 mb-2.5">
-                  Specialized learning curriculum:
+              <div className="py-4 space-y-3">
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  Rigorous 6-month hands-on immersion in object-oriented programming, data structures, SQL, and enterprise database fundamentals.
                 </p>
+
                 <div className="flex flex-wrap gap-1.5">
                   {[
                     "Core Java",
@@ -134,7 +209,7 @@ export default function About() {
                   ].map((topic) => (
                     <span
                       key={topic}
-                      className="text-[11px] font-mono px-2 py-0.5 rounded-md bg-white/5 text-slate-300 border border-white/10"
+                      className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10"
                     >
                       {topic}
                     </span>
@@ -142,101 +217,64 @@ export default function About() {
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Right Column: Statistics & Education Card */}
-          <div className="lg:col-span-6 space-y-6">
-            {/* 4 Animated Metric Cards (Honest numbers only) */}
-            <div className="grid grid-cols-2 gap-4">
-              {STATISTICS.map((stat, i) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1, duration: 0.5 }}
-                  className="glass-card rounded-2xl p-4 sm:p-5 flex flex-col justify-between border border-white/10 hover:border-indigo-500/40"
-                >
-                  <span className="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 via-white to-cyan-300 font-mono">
-                    {stat.value}
-                  </span>
-                  <div className="mt-2">
-                    <p className="text-xs sm:text-sm font-semibold text-white">
-                      {stat.label}
-                    </p>
-                    <p className="text-[11px] text-slate-400 mt-0.5">
-                      {stat.subtext}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
+            <div className="text-[11px] text-slate-400 pt-2 border-t border-white/5 flex items-center justify-between">
+              <span>Status: Active Professional Training</span>
+              <span className="text-cyan-400 font-mono">6 Months</span>
             </div>
+          </motion.div>
 
-            {/* Premium Education Card */}
-            <div className="glass-panel rounded-2xl p-6 sm:p-7 border border-cyan-500/25 relative overflow-hidden shadow-2xl">
-              {/* Decorative gradient corner */}
-              <div className="absolute -top-12 -right-12 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none" />
-
-              <div className="flex items-start justify-between gap-4 pb-4 border-b border-white/10">
+          {/* Bento Card 4: Internship Exposure (lg:col-span-6) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="lg:col-span-6 bento-card p-6 sm:p-7 flex flex-col justify-between"
+          >
+            <div>
+              <div className="flex items-center justify-between pb-3.5 border-b border-white/10">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-300 flex-shrink-0">
-                    <GraduationCap className="w-6 h-6" />
+                  <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/25 flex items-center justify-center text-purple-400">
+                    <Layers className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[11px] font-mono uppercase text-cyan-400 tracking-wider font-semibold">
-                      Higher Education
-                    </span>
-                    <h4 className="text-lg font-bold text-white tracking-tight">
-                      {EDUCATION.degree}
-                    </h4>
-                    <p className="text-xs text-slate-400">
-                      {EDUCATION.university} • {EDUCATION.location}
-                    </p>
+                    <h4 className="text-base font-bold text-white">Internship Exposure</h4>
+                    <p className="text-xs text-purple-300">2 Verified Industry Placements</p>
                   </div>
                 </div>
+                <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full bg-purple-500/15 text-purple-300 border border-purple-500/30">
+                  Practical Exposure
+                </span>
+              </div>
 
-                <div className="text-right">
-                  <span className="inline-flex items-center gap-1 text-xs font-mono font-bold text-cyan-300 px-2.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20">
-                    {EDUCATION.year}
-                  </span>
-                  <p className="text-[10px] text-slate-500 mt-1 font-mono">
-                    {EDUCATION.status}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 py-4">
+                <div className="bg-black/40 p-3 rounded-xl border border-white/5 space-y-1">
+                  <span className="text-[10px] font-mono text-cyan-300">01 • AI Intern</span>
+                  <h5 className="font-semibold text-white text-xs">The Mind IT — Trichy</h5>
+                  <p className="text-[11px] text-slate-400 leading-relaxed">
+                    AI fundamentals, Python scripting, computer vision workflows, and practical problem solving.
+                  </p>
+                </div>
+
+                <div className="bg-black/40 p-3 rounded-xl border border-white/5 space-y-1">
+                  <span className="text-[10px] font-mono text-purple-300">02 • Full Stack Intern</span>
+                  <h5 className="font-semibold text-white text-xs">Novi Tech</h5>
+                  <p className="text-[11px] text-slate-400 leading-relaxed">
+                    Frontend web technologies, responsive styling, backend fundamentals, and REST API flows.
                   </p>
                 </div>
               </div>
-
-              <div className="pt-4 space-y-3">
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  {EDUCATION.description}
-                </p>
-
-                <div className="space-y-1.5 pt-1">
-                  <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wide">
-                    Academic Focus Areas:
-                  </span>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300">
-                    {EDUCATION.highlights.map((h, idx) => (
-                      <div key={idx} className="flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 flex-shrink-0" />
-                        <span className="truncate">{h}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="pt-3 border-t border-white/5 flex flex-wrap gap-1.5">
-                  {EDUCATION.skills.map((s) => (
-                    <span
-                      key={s}
-                      className="text-[11px] font-mono px-2 py-0.5 rounded bg-cyan-950/40 text-cyan-300 border border-cyan-800/40"
-                    >
-                      {s}
-                    </span>
-                  ))}
-                </div>
-              </div>
             </div>
-          </div>
+
+            <div className="text-[11px] text-slate-400 pt-2 border-t border-white/5 flex items-center justify-between">
+              <span>Verified internship learning experiences</span>
+              <a href="#experience" className="text-indigo-400 hover:text-cyan-300 font-mono flex items-center gap-1">
+                <span>View Timeline</span>
+                <ArrowRight className="w-3 h-3" />
+              </a>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,22 +1,16 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Sparkles,
   ExternalLink,
   Code2,
   CheckCircle2,
-  Layers,
-  Terminal,
   ShieldAlert,
-  Bot,
-  Database,
-  Eye,
   ArrowUpRight,
   FolderGit2,
 } from "lucide-react";
-import { PROJECTS, ProjectItem } from "@/lib/constants";
+import { PROJECTS } from "@/lib/constants";
 import TheftDetectionPipelineVisualizer from "./ui/TheftDetectionPipelineVisualizer";
 
 export default function Projects() {
@@ -29,9 +23,9 @@ export default function Projects() {
       <div className="absolute top-1/4 left-10 w-96 h-96 bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-mono mb-3">
             <Sparkles className="w-3 h-3 text-cyan-400" />
             <span>PORTFOLIO SHOWCASE</span>
@@ -39,14 +33,14 @@ export default function Projects() {
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Featured <span className="gradient-accent">Projects</span>
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base mt-2">
+          <p className="text-slate-400 text-xs sm:text-sm md:text-base mt-2">
             Practical applications built with computer vision, Core Java programming, relational databases, and modern web interfaces.
           </p>
         </div>
 
-        {/* Featured Project Card (Larger, Full Width) */}
-        <div className="mb-12">
-          <div className="glass-panel rounded-3xl p-6 sm:p-8 lg:p-10 border border-indigo-500/30 relative overflow-hidden shadow-2xl">
+        {/* Featured Project Bento (Full Width 12 cols) */}
+        <div className="mb-8">
+          <div className="bento-card p-6 sm:p-8 lg:p-10 border-indigo-500/35 relative overflow-hidden">
             {/* Top gradient line */}
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400" />
 
@@ -54,12 +48,12 @@ export default function Projects() {
               {/* Left Details */}
               <div className="lg:col-span-5 space-y-5">
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-mono uppercase px-2.5 py-1 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 font-semibold flex items-center gap-1">
+                  <span className="text-xs font-mono uppercase px-3 py-1 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 font-semibold flex items-center gap-1.5">
                     <ShieldAlert className="w-3.5 h-3.5" />
-                    Featured Project
+                    Featured AI System
                   </span>
                   <span className="text-xs font-mono text-slate-400">
-                    Computer Vision • AI
+                    Computer Vision
                   </span>
                 </div>
 
@@ -96,7 +90,7 @@ export default function Projects() {
                   {featuredProject.technologies.map((t) => (
                     <span
                       key={t}
-                      className="text-[11px] font-mono px-2.5 py-1 rounded-md bg-white/5 text-slate-300 border border-white/10"
+                      className="text-[11px] font-mono px-2.5 py-1 rounded-md bg-black/40 text-slate-300 border border-white/10"
                     >
                       {t}
                     </span>
@@ -112,7 +106,7 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* Secondary Projects Grid (3 Cards) */}
+        {/* Secondary Projects Bento Grid (3 Cards) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {secondaryProjects.map((project, idx) => (
             <motion.div
@@ -120,8 +114,8 @@ export default function Projects() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1, duration: 0.5 }}
-              className="glass-card rounded-2xl p-6 sm:p-7 flex flex-col justify-between border border-white/10 hover:border-indigo-500/40 group transition-all duration-300"
+              transition={{ delay: idx * 0.1, duration: 0.45 }}
+              className="bento-card p-6 sm:p-7 flex flex-col justify-between group"
             >
               <div>
                 {/* Header Tag */}
@@ -135,7 +129,7 @@ export default function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Open ${project.title} live demo`}
-                      className="text-xs text-indigo-400 hover:text-cyan-300 flex items-center gap-1 font-medium transition-colors"
+                      className="text-xs text-indigo-400 hover:text-cyan-300 flex items-center gap-1 font-mono transition-colors"
                     >
                       <span>Live App</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
@@ -168,11 +162,11 @@ export default function Projects() {
               </div>
 
               {/* Technologies */}
-              <div className="mt-6 pt-3 border-t border-white/5 flex flex-wrap gap-1.5">
+              <div className="mt-6 pt-3.5 border-t border-white/5 flex flex-wrap gap-1.5">
                 {project.technologies.map((t) => (
                   <span
                     key={t}
-                    className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10"
+                    className="text-[10px] font-mono px-2 py-0.5 rounded bg-black/40 text-slate-300 border border-white/10"
                   >
                     {t}
                   </span>
