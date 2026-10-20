@@ -80,7 +80,7 @@ export default function Hero({ onOpenResume }: HeroProps) {
                         alt={PERSONAL_INFO.name}
                         fill
                         sizes="(max-width: 640px) 256px, 320px"
-                        className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                        className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                         onError={() => setImageError(true)}
                         priority
                       />
