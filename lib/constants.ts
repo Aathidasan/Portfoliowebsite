@@ -27,6 +27,7 @@ export const PERSONAL_INFO = {
   email: "aathidasan7@gmail.com",
   linkedin: "https://www.linkedin.com/in/aathi-dasan-386513352",
   portfolioUrl: "https://aathidasan-ai-portfoli-craft.lovable.app",
+  avatar: "/profile.jpg",
   heroBio:
     "I’m a passionate software developer fresher focused on Java, web technologies, and AI, building practical solutions while continuously improving my development skills.",
   summary:

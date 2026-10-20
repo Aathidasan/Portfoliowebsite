@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   Download,
@@ -21,6 +22,7 @@ export default function Hero({ onOpenResume }: HeroProps) {
   const [taglineIndex, setTaglineIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   useEffect(() => {
     const currentTagline = PERSONAL_INFO.taglines[taglineIndex];
@@ -66,19 +68,36 @@ export default function Hero({ onOpenResume }: HeroProps) {
               </div>
 
               {/* Glowing Avatar Frame */}
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full flex items-center justify-center p-2 bg-gradient-to-tr from-purple-800/40 via-violet-600/30 to-transparent border border-purple-500/30 shadow-2xl shadow-purple-900/40">
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full flex items-center justify-center p-2 bg-gradient-to-tr from-purple-800/40 via-violet-600/30 to-transparent border border-purple-500/30 shadow-2xl shadow-purple-900/40 group">
                 {/* Glow ring */}
                 <div className="absolute inset-0 rounded-full bg-purple-600/20 blur-2xl pointer-events-none" />
 
-                <div className="w-full h-full rounded-full bg-[#1A0A30] flex flex-col items-center justify-center text-center p-6 border border-white/10 relative overflow-hidden">
-                  <div className="w-24 h-24 rounded-2xl bg-gradient-to-tr from-purple-600 to-violet-500 flex items-center justify-center shadow-lg shadow-purple-900 mb-3">
-                    <span className="text-4xl font-extrabold text-white">AR</span>
-                  </div>
-                  <h3 className="font-bold text-lg text-white">Aathidasan R</h3>
-                  <p className="text-xs text-purple-300 font-mono mt-0.5">B.Sc. IT • CGPA 8.8/10</p>
-                  <span className="mt-2 text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/40">
-                    Java Full Stack Fresher
-                  </span>
+                <div className="w-full h-full rounded-full bg-[#1A0A30] flex flex-col items-center justify-center text-center border border-white/10 relative overflow-hidden">
+                  {!imageError && PERSONAL_INFO.avatar ? (
+                    <div className="relative w-full h-full rounded-full overflow-hidden">
+                      <Image
+                        src={PERSONAL_INFO.avatar}
+                        alt={PERSONAL_INFO.name}
+                        fill
+                        sizes="(max-width: 640px) 256px, 320px"
+                        className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                        onError={() => setImageError(true)}
+                        priority
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-purple-950/60 via-transparent to-transparent pointer-events-none" />
+                    </div>
+                  ) : (
+                    <div className="p-6 flex flex-col items-center justify-center">
+                      <div className="w-24 h-24 rounded-2xl bg-gradient-to-tr from-purple-600 to-violet-500 flex items-center justify-center shadow-lg shadow-purple-900 mb-3">
+                        <span className="text-4xl font-extrabold text-white">AR</span>
+                      </div>
+                      <h3 className="font-bold text-lg text-white">Aathidasan R</h3>
+                      <p className="text-xs text-purple-300 font-mono mt-0.5">B.Sc. IT • CGPA 8.8/10</p>
+                      <span className="mt-2 text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/40">
+                        Java Full Stack Fresher
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
