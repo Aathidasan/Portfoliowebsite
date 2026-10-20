@@ -5,197 +5,119 @@ export interface NavItem {
 
 export const NAV_ITEMS: NavItem[] = [
   { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
   { name: "Experience", href: "#experience" },
-  { name: "Projects", href: "#projects" },
-  { name: "Services", href: "#services" },
+  { name: "About", href: "#about" },
+  { name: "Lab", href: "#lab" },
   { name: "Contact", href: "#contact" },
 ];
 
 export const PERSONAL_INFO = {
   name: "Aathidasan R",
-  role: "Java Developer",
+  role: "Java Full Stack Developer",
   taglines: [
-    "Java Developer",
+    "Java Full Stack Developer",
     "Software Developer Fresher",
-    "AI Enthusiast",
-    "Web Developer",
+    "AI Enthusiast & Python Dev",
+    "React & Web Developer",
     "Problem Solver",
   ],
   status: "Available for Entry-Level Opportunities",
-  location: "Chennai, Tamil Nadu, India",
-  phone: "+91 95660 95628",
+  location: "Nagapattinam / Chennai, Tamil Nadu, India",
+  phone: "+91-9566095628",
   email: "aathidasan7@gmail.com",
+  linkedin: "https://www.linkedin.com/in/aathi-dasan-386513352",
   portfolioUrl: "https://aathidasan-ai-portfoli-craft.lovable.app",
   heroBio:
     "I’m a passionate software developer fresher focused on Java, web technologies, and AI, building practical solutions while continuously improving my development skills.",
-  aboutParagraphs: [
-    "I am a motivated B.Sc. Information Technology graduate (PRIST University, 2026) currently undergoing intensive 6-month Java Development Training at QSpiders, Velachery, Chennai.",
-    "With hands-on internship exposure across Artificial Intelligence at The Mind IT and Full Stack Web Development at Novi Tech, I bridge core programming logic with modern interactive web applications and computer vision workflows.",
-    "Driven by continuous learning and pragmatic engineering, I focus on building reliable software solutions and am actively seeking entry-level software development opportunities where I can contribute and grow.",
-  ],
+  summary:
+    "B.Sc. Information Technology graduate with a CGPA of 8.8/10 and aspiring Java Full Stack Developer. Strong foundation in Java, Python, JavaScript, React, SQL, REST APIs, Git, and web development. Completed industry-oriented internships in Artificial Intelligence, Full Stack Development, and Data Analytics. Hands-on experience developing AI-based computer vision applications and web-based projects. Interested in software development, problem solving, and learning modern technologies.",
 };
 
 export const STATISTICS = [
+  {
+    value: "8.8",
+    label: "Graduation CGPA",
+    subtext: "PRIST University (8.8/10)",
+  },
   {
     value: "2026",
     label: "Graduation Year",
     subtext: "B.Sc. Information Technology",
   },
   {
-    value: "6 Months",
+    value: "3",
+    label: "Industry Internships",
+    subtext: "AI, Full Stack & Data Analytics",
+  },
+  {
+    value: "6 Mo",
     label: "Java Training",
     subtext: "QSpiders Velachery",
   },
-  {
-    value: "2",
-    label: "Internship Experiences",
-    subtext: "AI & Full Stack Web",
-  },
-  {
-    value: "2+",
-    label: "Major Featured Projects",
-    subtext: "Computer Vision & Web",
-  },
 ];
+
+export interface SkillItem {
+  name: string;
+  icon: string;
+  description: string;
+  badge: string;
+}
 
 export interface SkillCategory {
   category: string;
   description: string;
-  skills: {
-    name: string;
-    icon: string;
-    description: string;
-    badge: string;
-  }[];
+  skills: SkillItem[];
 }
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     category: "Programming",
-    description: "Core languages for logic, problem solving, and backend services",
+    description: "Core logic and language proficiencies",
     skills: [
-      {
-        name: "Java",
-        icon: "Coffee",
-        description: "Core Java, OOP principles, collections framework, exception handling",
-        badge: "Core Focus",
-      },
-      {
-        name: "Python",
-        icon: "FileCode",
-        description: "Scripting, computer vision workflows, automation, and backend logic",
-        badge: "Proficient",
-      },
-      {
-        name: "JavaScript",
-        icon: "Code",
-        description: "ES6+, asynchronous programming, DOM manipulation, interactive web apps",
-        badge: "Proficient",
-      },
+      { name: "Java", icon: "Coffee", description: "Core Java, OOP principles, collections framework", badge: "Core Focus" },
+      { name: "Python", icon: "FileCode", description: "Data manipulation, computer vision, scripting", badge: "Proficient" },
+      { name: "JavaScript", icon: "Code", description: "Modern ES6+, DOM manipulation, asynchronous programming", badge: "Frontend/Node" },
     ],
   },
   {
-    category: "Web Development",
-    description: "Modern frontend and full-stack web technologies",
+    category: "Frontend",
+    description: "User interfaces, styling, and client-side logic",
     skills: [
-      {
-        name: "React",
-        icon: "Atom",
-        description: "Component lifecycle, state management, hooks, modern UI building",
-        badge: "Framework",
-      },
-      {
-        name: "HTML5 & CSS3",
-        icon: "Layers",
-        description: "Semantic structures, Flexbox, Grid layouts, responsive styling",
-        badge: "Frontend",
-      },
-      {
-        name: "REST APIs",
-        icon: "Network",
-        description: "API design concepts, JSON payloads, client-server communication",
-        badge: "Integration",
-      },
+      { name: "React", icon: "Atom", description: "Modern functional components, hooks, state handling", badge: "Framework" },
+      { name: "HTML5", icon: "Layers", description: "Semantic markup, accessibility compliance", badge: "Markup" },
+      { name: "CSS3", icon: "Layers", description: "Flexbox, Grid, responsive media queries, Tailwind", badge: "Responsive" },
+      { name: "JavaScript", icon: "Code", description: "Interactive client applications and dynamic rendering", badge: "Interactive" },
     ],
   },
   {
-    category: "Database Management",
-    description: "Relational database querying, schema structuring, and persistence",
+    category: "Backend & Databases",
+    description: "Server architecture and relational data management",
     skills: [
-      {
-        name: "SQL",
-        icon: "Database",
-        description: "DDL, DML, complex joins, subqueries, group by, indexing concepts",
-        badge: "Relational",
-      },
-      {
-        name: "Oracle",
-        icon: "HardDrive",
-        description: "Enterprise relational database concepts and structured querying",
-        badge: "Enterprise",
-      },
-      {
-        name: "SQLite",
-        icon: "Server",
-        description: "Lightweight embedded SQL storage for applications and event logs",
-        badge: "Embedded",
-      },
+      { name: "Flask", icon: "Server", description: "Python web microframework for lightweight API backends", badge: "Microframework" },
+      { name: "REST APIs", icon: "Network", description: "Client-server architecture, JSON payloads, endpoints", badge: "Integration" },
+      { name: "SQL", icon: "Database", description: "DDL, DML, complex joins, subqueries, group by", badge: "Relational" },
+      { name: "SQLite", icon: "HardDrive", description: "Embedded lightweight database for event logging", badge: "Embedded" },
     ],
   },
   {
     category: "AI & Computer Vision",
-    description: "Machine vision, neural detection pipelines, and intelligent workflows",
+    description: "Deep learning object detection and spatial processing",
     skills: [
-      {
-        name: "Artificial Intelligence",
-        icon: "Cpu",
-        description: "Core AI concepts, machine learning fundamentals, pipeline architectures",
-        badge: "Enthusiast",
-      },
-      {
-        name: "YOLO (You Only Look Once)",
-        icon: "Eye",
-        description: "Real-time object detection models and inference pipelines",
-        badge: "Detection",
-      },
-      {
-        name: "OpenCV",
-        icon: "Camera",
-        description: "Video stream processing, frame manipulation, bounding boxes",
-        badge: "Vision",
-      },
-      {
-        name: "Object Detection",
-        icon: "Scan",
-        description: "Tracking people, items, concealment behavior, visual bounding states",
-        badge: "Analysis",
-      },
+      { name: "YOLO", icon: "Eye", description: "Real-time neural object detection model inference", badge: "Object Detection" },
+      { name: "OpenCV", icon: "Camera", description: "Image stream ingestion, frame transformations, visual telemetry", badge: "Computer Vision" },
+      { name: "Object Detection", icon: "Scan", description: "Human pose, keypoints, and spatial behavior analysis", badge: "Pose & Keypoints" },
     ],
   },
   {
-    category: "Developer Tools",
-    description: "Version control, workflow efficiency, and testing utilities",
+    category: "Tools & Concepts",
+    description: "Workflow tools and software engineering fundamentals",
     skills: [
-      {
-        name: "Git & GitHub",
-        icon: "GitBranch",
-        description: "Version control, branching, committing, repository collaboration",
-        badge: "VCS",
-      },
-      {
-        name: "VS Code",
-        icon: "Terminal",
-        description: "Primary development environment, extensions, debugging setup",
-        badge: "IDE",
-      },
-      {
-        name: "Postman",
-        icon: "Send",
-        description: "API endpoint testing, request validation, response inspection",
-        badge: "Testing",
-      },
+      { name: "Git & GitHub", icon: "GitBranch", description: "Version control, branching, repository collaboration", badge: "Version Control" },
+      { name: "VS Code", icon: "Terminal", description: "Primary IDE environment and debugging utilities", badge: "Development" },
+      { name: "OOP", icon: "Cpu", description: "Encapsulation, inheritance, polymorphism, abstraction", badge: "Concepts" },
+      { name: "DBMS / CRUD", icon: "Database", description: "Database management, persistent operations", badge: "Database" },
+      { name: "SQL Queries", icon: "FileCode", description: "Optimized queries and table relational structures", badge: "Querying" },
+      { name: "API Integration", icon: "Network", description: "Consuming and testing third-party and custom APIs", badge: "Integration" },
     ],
   },
 ];
@@ -217,20 +139,20 @@ export const EXPERIENCES: ExperienceItem[] = [
   {
     id: "training-qspiders",
     type: "training",
-    role: "Java Development Training",
+    role: "Java Full Stack Developer Training",
     organization: "QSpiders",
     location: "Velachery, Chennai",
-    period: "6-Month Java Course (Current)",
-    status: "In Progress",
+    period: "6-Month Course (Current)",
+    status: "Active Training",
     description:
-      "Undergoing rigorous professional training in Core Java and enterprise database concepts to master industry-standard software development practices.",
+      "Intensive software engineering training focusing on Core Java, Object-Oriented Programming (OOP) paradigms, SQL queries, Oracle database concepts, and full-stack software development workflows.",
     highlights: [
       "Core Java & Object-Oriented Programming (OOP) paradigms",
       "Java programming practice, algorithmic problem-solving & data structures",
-      "Relational database design, complex SQL queries, and Oracle database concepts",
+      "Relational database design, complex SQL queries, and Oracle concepts",
       "Writing clean, modular, and maintainable software code",
     ],
-    technologies: ["Core Java", "OOP", "SQL", "Oracle", "Problem Solving", "Data Structures"],
+    technologies: ["Core Java", "OOP", "SQL", "Oracle", "Data Structures"],
   },
   {
     id: "internship-the-mind-it",
@@ -238,54 +160,73 @@ export const EXPERIENCES: ExperienceItem[] = [
     role: "Artificial Intelligence Intern",
     organization: "The Mind IT",
     location: "Trichy, Tamil Nadu",
-    period: "Internship Exposure",
+    period: "Industry Internship",
     status: "Completed",
     description:
-      "Gained hands-on exposure to practical AI methodologies, computer vision concepts, and Python-based development workflows.",
+      "Completed an industry-oriented internship in Artificial Intelligence. Gained hands-on exposure to practical AI concepts, machine learning workflows, computer vision, and AI application development.",
     highlights: [
-      "Artificial Intelligence fundamentals and workflow modeling",
-      "AI-based development tasks and script implementations in Python",
-      "Understanding real-world data pipelines and model inference logic",
-      "Applying analytical problem-solving to practical computer vision tasks",
+      "Completed an industry-oriented internship in Artificial Intelligence",
+      "Gained exposure to AI concepts and machine learning workflows",
+      "Hands-on computer vision and AI application development with Python",
+      "Practical problem-solving and neural inference pipelines",
     ],
-    technologies: ["Python", "AI Workflows", "Computer Vision", "Machine Learning Fundamentals"],
+    technologies: ["Python", "Computer Vision", "AI Workflows", "YOLO"],
   },
   {
-    id: "internship-novi-tech",
+    id: "internship-novitech-fullstack",
     type: "internship",
-    role: "Full Stack Developer Intern",
-    organization: "Novi Tech",
+    role: "Full Stack Development Intern / MasterClass",
+    organization: "NoviTech R&D Pvt. Ltd.",
     location: "Tamil Nadu, India",
-    period: "Internship Exposure",
+    period: "30-Day MasterClass & Internship",
     status: "Completed",
     description:
-      "Explored the end-to-end full-stack web development cycle, mastering frontend interfaces and backend integration concepts.",
+      "Gained practical exposure to frontend, backend, database integration, and web application development. Successfully completed an intensive 30-Day MasterClass in Full Stack Development.",
     highlights: [
-      "Hands-on web development exposure utilizing modern HTML, CSS, and JavaScript",
-      "Frontend UI implementation and responsive design principles",
-      "Backend architectural fundamentals and client-server REST communication",
-      "Understanding modern software development workflows and debugging",
+      "Gained practical exposure to frontend, backend, and database integration",
+      "Hands-on web application development and responsive UI design",
+      "Completed a rigorous 30-Day MasterClass in Full Stack Development",
+      "Worked with modern client-server architectures and REST APIs",
     ],
-    technologies: ["HTML5", "CSS3", "JavaScript", "Full Stack Concepts", "REST APIs"],
+    technologies: ["HTML5", "CSS3", "JavaScript", "React", "REST APIs", "SQL"],
+  },
+  {
+    id: "internship-novitech-analytics",
+    type: "internship",
+    role: "Data Analytics Intern",
+    organization: "NoviTech R&D Pvt. Ltd.",
+    location: "Tamil Nadu, India",
+    period: "Industry Internship",
+    status: "Completed",
+    description:
+      "Gained exposure to data processing, analysis, and analytical workflows to interpret data structures and optimize application performance.",
+    highlights: [
+      "Gained exposure to data processing, analysis, and analytical workflows",
+      "Structured querying and data transformation procedures",
+      "Evaluating metrics to inform software and architectural decisions",
+    ],
+    technologies: ["Data Analytics", "SQL", "Data Processing", "Python"],
   },
 ];
 
 export const EDUCATION = {
-  degree: "B.Sc. Information Technology",
-  university: "PRIST University",
+  degree: "Bachelor of Science in Information Technology (B.Sc. IT)",
+  university: "Ponnaiyah Ramajayam Institute of Science & Technology (PRIST)",
   location: "Thanjavur, Tamil Nadu",
+  period: "2023 – 2026",
   year: "2026",
-  status: "Graduated 2026",
-  badge: "Bachelor of Science",
+  cgpa: "8.8 / 10",
+  status: "Graduating 2026",
+  badge: "CGPA: 8.8 / 10",
   description:
-    "Comprehensive academic foundation in computer science, information technology principles, software engineering, databases, and mathematics.",
+    "Comprehensive academic curriculum in information technology, computer science, software engineering, databases, and programming logic with exceptional academic standing (8.8/10 CGPA).",
   highlights: [
+    "Exceptional Academic Performance with 8.8/10 CGPA",
     "Object-Oriented Programming & Software Engineering",
     "Relational Database Management Systems & SQL",
-    "Computer Networks, Operating Systems & Web Basics",
-    "Practical Academic Lab Projects & Problem Solving",
+    "Web Basics, Networking, and Algorithmic Problem Solving",
   ],
-  skills: ["Computer Science", "Database Systems", "Web Tech", "Software Engineering", "Algorithms"],
+  skills: ["Computer Science", "Database Systems", "Software Engineering", "OOP", "Algorithms"],
 };
 
 export interface ProjectItem {
@@ -297,12 +238,6 @@ export interface ProjectItem {
   description: string;
   technologies: string[];
   features: string[];
-  workflow?: {
-    step: string;
-    label: string;
-    description: string;
-    icon: string;
-  }[];
   externalUrl?: string;
   liveUrlLabel?: string;
 }
@@ -311,90 +246,58 @@ export const PROJECTS: ProjectItem[] = [
   {
     id: "ai-theft-detection",
     title: "AI Theft Detection System",
-    badge: "Featured System • Computer Vision",
+    badge: "Featured AI Project",
     featured: true,
-    tagline: "Intelligent real-time object-concealment behavior detection & automated incident dispatch",
+    tagline: "Retail theft detection using YOLO, OpenCV human pose/keypoint analysis & automated Telegram alerts",
     description:
-      "An advanced AI-driven computer vision system engineered to detect suspicious behavior and object-concealment actions in real time. Features multi-stage visual detection states, automated evidence capture, instant Telegram alerts, and structured SQLite event logging.",
+      "Developed an AI-based retail theft detection system using YOLO and OpenCV to identify potential product concealment. Used human pose/keypoint information to analyze person–product interactions and detect potential concealment events in real time. Built a Flask web application with SQLite for event logging and integrated automated Telegram notifications with captured detection images, date, and time information.",
     technologies: [
       "Python",
       "YOLO",
       "OpenCV",
+      "Pose Estimation",
       "Flask",
       "SQLite",
-      "Flask-SocketIO",
       "Telegram Bot API",
       "HTML/CSS/JS",
     ],
     features: [
-      "Real-time Person & Handheld Object Detection using YOLO neural weights",
-      "Behavior analysis pipeline monitoring suspicious concealment movements",
-      "Multi-stage visual detection states (Normal → Monitored → Suspicious Alert)",
+      "Real-time object detection using YOLO neural weights to identify merchandise & persons",
+      "Human pose and keypoint analysis to monitor person-product interactions and concealment movements",
       "Automated evidence capture with date, timestamp, and confidence score",
       "Instant Telegram bot alert dispatch with captured incident snapshot",
-      "SQLite event ledger for persistent security audit trail",
-      "Web-based live video dashboard with real-time SocketIO telemetry",
-    ],
-    workflow: [
-      {
-        step: "01",
-        label: "Camera Stream",
-        description: "Captures live video feed frames via OpenCV high-throughput ingestion",
-        icon: "Camera",
-      },
-      {
-        step: "02",
-        label: "YOLO Detection",
-        description: "Identifies persons, handheld merchandise, and boundary regions",
-        icon: "Scan",
-      },
-      {
-        step: "03",
-        label: "Behavior Analysis",
-        description: "Tracks object trajectory to detect concealment into bags or pockets",
-        icon: "Cpu",
-      },
-      {
-        step: "04",
-        label: "Instant Alert",
-        description: "Dispatches snapshot and telemetry data via Telegram Bot API",
-        icon: "Bell",
-      },
-      {
-        step: "05",
-        label: "Event Log",
-        description: "Records timestamped incident data into SQLite for audit review",
-        icon: "Database",
-      },
-    ],
-  },
-  {
-    id: "ai-portfolio-generator",
-    title: "AI Smart Portfolio Generator",
-    badge: "AI & Web Application",
-    featured: false,
-    tagline: "AI-assisted developer profile creation and portfolio generation platform",
-    description:
-      "An AI-powered concept designed to assist developers in crafting personalized portfolio content, technical profiles, and project showcases with intelligent prompt assistance and structured web outputs.",
-    technologies: ["Python", "AI APIs", "HTML5", "CSS3", "JavaScript", "Web Technologies"],
-    features: [
-      "Prompt-driven developer profile synthesis",
-      "Dynamic section generation for projects, technical skills, and career milestones",
-      "Clean, modern web preview architecture",
-      "Accessible and responsive responsive layout generation",
+      "Flask web application with SQLite event logging for security review",
     ],
     externalUrl: "https://aathidasan-ai-portfoli-craft.lovable.app",
-    liveUrlLabel: "View Portfolio Platform",
+    liveUrlLabel: "View Platform",
+  },
+  {
+    id: "ai-portfolio-builder",
+    title: "AI Portfolio Builder & Generator",
+    badge: "AI Web Platform",
+    featured: true,
+    tagline: "AI-assisted developer profile and structured portfolio content generator",
+    description:
+      "Developed an AI-assisted portfolio builder for organizing user information, skills, projects, and professional details. Designed an automated workflow to generate structured, recruiter-ready professional portfolio content and dynamic layouts.",
+    technologies: ["Python", "AI APIs", "React", "HTML5", "CSS3", "JavaScript", "REST APIs"],
+    features: [
+      "AI-assisted workflow for organizing developer skills, projects, and career milestones",
+      "Automated generation of structured, professional portfolio content",
+      "Clean, modern web preview architecture with responsive interfaces",
+      "One-click portfolio synthesis for developers and students",
+    ],
+    externalUrl: "https://aathidasan-ai-portfoli-craft.lovable.app",
+    liveUrlLabel: "View Live Demo",
   },
   {
     id: "java-programming-projects",
-    title: "Java Programming Suite",
+    title: "Java Full Stack Suite",
     badge: "Core Engineering",
     featured: false,
     tagline: "Robust Core Java applications demonstrating OOP paradigms & SQL integration",
     description:
-      "A curated collection of Java development projects created during rigorous training, demonstrating object-oriented programming, data structures, conditional control flows, method abstraction, and relational SQL integration.",
-    technologies: ["Java", "Core OOP", "SQL", "Oracle", "Collections", "JDBC Concepts"],
+      "A curated collection of Java development projects created during intensive training, demonstrating object-oriented programming, data structures, conditional control flows, method abstraction, and relational SQL database connectivity.",
+    technologies: ["Java", "Core OOP", "SQL", "Oracle", "Collections", "JDBC"],
     features: [
       "Encapsulation, inheritance, polymorphism, and abstraction design patterns",
       "Collection framework manipulation (Lists, Sets, Maps, Iterators)",
@@ -402,21 +305,33 @@ export const PROJECTS: ProjectItem[] = [
       "Relational database connectivity, schema manipulation, and querying",
     ],
   },
+];
+
+export const CERTIFICATIONS = [
   {
-    id: "web-development-projects",
-    title: "Modern Web Development Works",
-    badge: "Frontend & Full Stack",
-    featured: false,
-    tagline: "Interactive, responsive web experiences built with modern standards",
-    description:
-      "Collection of practical web development implementations featuring clean component design, responsive layouts, API integration, and fluid micro-interactions built during internship and self-directed practice.",
-    technologies: ["React", "JavaScript (ES6+)", "HTML5", "CSS3", "REST APIs", "Git"],
-    features: [
-      "Fully responsive, mobile-first layouts",
-      "Component-based architecture and state handling",
-      "Asynchronous REST API consumption and dynamic rendering",
-      "Accessible semantic markup and WCAG compliance consideration",
-    ],
+    title: "Artificial Intelligence Internship",
+    issuer: "The Mind IT, Trichy",
+    badge: "AI & ML",
+  },
+  {
+    title: "Full Stack Development Internship",
+    issuer: "NoviTech R&D Pvt. Ltd.",
+    badge: "Web Dev",
+  },
+  {
+    title: "30-Day MasterClass in Full Stack Development",
+    issuer: "NoviTech R&D Pvt. Ltd.",
+    badge: "MasterClass",
+  },
+  {
+    title: "Data Analytics Internship",
+    issuer: "NoviTech R&D Pvt. Ltd.",
+    badge: "Analytics",
+  },
+  {
+    title: "Java Development Training",
+    issuer: "QSpiders — Velachery, Chennai",
+    badge: "Java / SQL",
   },
 ];
 
@@ -429,45 +344,39 @@ export interface ServiceItem {
 
 export const SERVICES: ServiceItem[] = [
   {
-    title: "Java Applications",
-    description:
-      "Developing structured, object-oriented Java applications with clean architecture, algorithmic logic, and reliable data flow.",
+    title: "Java Full Stack Applications",
+    description: "Developing structured, object-oriented Java applications with clean architecture and database connectivity.",
     icon: "Coffee",
-    technologies: ["Core Java", "OOP", "Collections", "JDBC"],
+    technologies: ["Core Java", "OOP", "SQL", "Oracle", "JDBC"],
   },
   {
     title: "Web Applications",
-    description:
-      "Building responsive, high-performance web interfaces with modern frontend technologies, smooth animations, and clean components.",
+    description: "Building responsive, modern user interfaces with React, JavaScript, HTML5, and CSS3.",
     icon: "Layout",
-    technologies: ["React", "JavaScript", "HTML5", "CSS3 / Tailwind"],
+    technologies: ["React", "JavaScript", "HTML5", "CSS3"],
   },
   {
-    title: "AI Applications",
-    description:
-      "Implementing practical computer vision and AI-assisted workflows such as object detection pipelines and inference scripts.",
+    title: "AI & Computer Vision Systems",
+    description: "Implementing real-time object detection, pose analysis, and automated notification pipelines.",
     icon: "Cpu",
-    technologies: ["Python", "YOLO", "OpenCV", "AI Workflows"],
+    technologies: ["Python", "YOLO", "OpenCV", "Flask"],
   },
   {
-    title: "Automation Solutions",
-    description:
-      "Creating simple scripting solutions and automated routines to streamline repetitive computational tasks and data collection.",
+    title: "Data Analytics & Scripting",
+    description: "Processing data structures, writing structured queries, and building analytical pipelines.",
     icon: "Zap",
-    technologies: ["Python", "Automation Scripts", "Telegram APIs"],
+    technologies: ["Python", "SQL", "Data Analytics"],
   },
   {
-    title: "Database Applications",
-    description:
-      "Designing structured relational database schemas and writing performant SQL queries for persistent data storage.",
+    title: "Database Architecture",
+    description: "Relational database structuring, query optimization, and schema management.",
     icon: "Database",
-    technologies: ["SQL", "Oracle", "SQLite", "Relational Modeling"],
+    technologies: ["SQL", "Oracle", "SQLite"],
   },
   {
     title: "Developer Portfolio Websites",
-    description:
-      "Crafting aesthetic, modern, recruiter-friendly personal portfolios and product showcase pages with world-class UX.",
+    description: "Modern, responsive, high-performance portfolios and digital products.",
     icon: "Sparkles",
-    technologies: ["Next.js", "Tailwind CSS", "Framer Motion", "Design Systems"],
+    technologies: ["Next.js", "React", "Tailwind CSS"],
   },
 ];

@@ -2,34 +2,37 @@
 
 import { motion } from "framer-motion";
 import {
-  Briefcase,
-  Building2,
-  Clock,
-  CheckCircle2,
+  Coffee,
+  Cpu,
+  Layers,
+  BarChart3,
+  ArrowRight,
+  ExternalLink,
 } from "lucide-react";
 import { EXPERIENCES } from "@/lib/constants";
 
+const ICON_MAP: Record<string, any> = {
+  "training-qspiders": Coffee,
+  "internship-the-mind-it": Cpu,
+  "internship-novitech-fullstack": Layers,
+  "internship-novitech-analytics": BarChart3,
+};
+
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 sm:py-28 border-b border-white/[0.08] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Studio Header */}
-        <div className="mb-14">
-          <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest block mb-1">
-            03 / EXPERIENCE & TRAINING
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Milestones & Internships
-          </h2>
-          <p className="text-zinc-400 text-xs sm:text-sm mt-1 max-w-2xl">
-            Practical development immersion through verified internships and active professional Java training, clearly distinguished for hiring transparency.
-          </p>
-        </div>
+    <section id="experience" className="py-20 px-6 relative">
+      <div className="container mx-auto max-w-6xl">
+        <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4 text-center">
+          Work Experience
+        </h2>
+        <p className="text-center text-white/70 text-sm sm:text-base mb-12 max-w-2xl mx-auto">
+          Industry-oriented internships and professional full stack development training.
+        </p>
 
-        {/* Timeline Stack */}
-        <div className="space-y-4 max-w-4xl">
+        {/* 2x2 Grid Matching Ibrahim Memon Portfolio */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {EXPERIENCES.map((item, idx) => {
-            const isTraining = item.type === "training";
+            const Icon = ICON_MAP[item.id] || Coffee;
 
             return (
               <motion.div
@@ -38,65 +41,56 @@ export default function Experience() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.35, delay: idx * 0.08 }}
-                className="studio-card p-6"
+                className="bg-gradient-to-r from-slate-950 via-purple-950/80 to-slate-950 backdrop-blur-sm rounded-xl p-6 border-t-3 border-purple-700 hover:shadow-2xl hover:shadow-purple-950 transition-all duration-300 flex flex-col justify-between group"
               >
-                {/* Top Meta */}
-                <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-white/[0.08]">
-                  <div className="flex items-center gap-2">
-                    <span className="studio-tag">
-                      {isTraining ? "PROFESSIONAL TRAINING" : "INTERNSHIP"}
-                    </span>
-                    <span className="text-[10px] font-mono text-zinc-400 bg-zinc-900 px-2 py-0.5 rounded border border-white/10">
-                      {item.status}
+                <div>
+                  <div className="flex items-start justify-between gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-xl bg-purple-900/40 border border-purple-500/30 flex items-center justify-center text-purple-300 flex-shrink-0 group-hover:border-purple-400 transition-colors">
+                      <Icon className="w-6 h-6" />
+                    </div>
+
+                    <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-white/10 text-purple-300 border border-purple-500/30">
+                      {item.period}
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-1.5 text-xs text-zinc-400 font-mono">
-                    <Clock className="w-3.5 h-3.5 text-zinc-500" />
-                    <span>{item.period}</span>
-                  </div>
-                </div>
-
-                {/* Main Role & Org */}
-                <div className="mt-4 space-y-1">
-                  <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+                  <h3 className="text-xl font-semibold text-white mb-1">
                     {item.role}
                   </h3>
-                  <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-400 font-mono">
-                    <Building2 className="w-3.5 h-3.5 text-zinc-500" />
-                    <span className="text-zinc-200 font-medium">{item.organization}</span>
-                    <span>•</span>
-                    <span>{item.location}</span>
-                  </div>
+                  <p className="text-purple-400 font-medium text-xs mb-3">
+                    {item.organization} • {item.location}
+                  </p>
+
+                  <p className="text-white/70 text-sm leading-relaxed mb-4">
+                    {item.description}
+                  </p>
+
+                  <ul className="space-y-1.5 mb-4 text-xs text-white/80">
+                    {item.highlights.map((h, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-purple-400 mt-1.5 flex-shrink-0" />
+                        <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                {/* Description */}
-                <p className="mt-3 text-xs sm:text-sm text-zinc-300 leading-relaxed">
-                  {item.description}
-                </p>
-
-                {/* Highlights */}
-                <div className="mt-4 space-y-1.5 pt-3.5 border-t border-white/[0.06]">
-                  <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wide">
-                    Practical Focus & Key Learnings:
-                  </span>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-zinc-300">
-                    {item.highlights.map((h, i) => (
-                      <div key={i} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-zinc-400 flex-shrink-0 mt-0.5" />
-                        <span>{h}</span>
-                      </div>
+                <div className="pt-3 border-t border-white/10 flex items-center justify-between">
+                  <div className="flex flex-wrap gap-1.5">
+                    {item.technologies.slice(0, 3).map((t) => (
+                      <span key={t} className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-purple-200 border border-white/10">
+                        {t}
+                      </span>
                     ))}
                   </div>
-                </div>
 
-                {/* Technologies */}
-                <div className="mt-4 pt-3 border-t border-white/[0.06] flex flex-wrap gap-1.5">
-                  {item.technologies.map((tech) => (
-                    <span key={tech} className="studio-tag">
-                      {tech}
-                    </span>
-                  ))}
+                  <a
+                    href="#lab"
+                    className="text-purple-400 hover:text-purple-300 font-medium text-sm transition-colors inline-flex items-center gap-1 group-hover:translate-x-0.5"
+                  >
+                    <span>LEARN MORE</span>
+                    <span>→</span>
+                  </a>
                 </div>
               </motion.div>
             );

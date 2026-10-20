@@ -15,7 +15,7 @@ const firaCode = Fira_Code({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
+  themeColor: "#110720",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -24,24 +24,24 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://aathidasan-ai-portfoli-craft.lovable.app"),
   title: {
-    default: "Aathidasan R | Java Developer | Software Developer",
+    default: "Aathidasan R | Java Full Stack Developer & AI Enthusiast",
     template: "%s | Aathidasan R",
   },
   description:
-    "Aathidasan R is a Java developer and software developer fresher with experience in AI, web development, Python, SQL, and practical software projects.",
+    "Aathidasan R is a Java Full Stack Developer and B.Sc. IT graduate (CGPA: 8.8/10) with practical experience in AI computer vision, Python, React, Flask, and SQL.",
   keywords: [
     "Aathidasan R",
-    "Java Developer",
+    "Java Full Stack Developer",
     "Software Developer Fresher",
     "AI Enthusiast",
     "Chennai Developer",
+    "Nagapattinam",
     "Python",
     "SQL",
     "React",
     "QSpiders Velachery",
     "PRIST University",
     "AI Theft Detection System",
-    "Web Developer Fresher",
   ],
   authors: [{ name: "Aathidasan R" }],
   creator: "Aathidasan R",
@@ -49,27 +49,20 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://aathidasan-ai-portfoli-craft.lovable.app",
-    title: "Aathidasan R | Java Developer | Software Developer",
+    title: "Aathidasan R | Java Full Stack Developer & AI Enthusiast",
     description:
-      "Aathidasan R is a Java developer and software developer fresher with experience in AI, web development, Python, SQL, and practical software projects.",
+      "Aathidasan R is a Java Full Stack Developer and B.Sc. IT graduate (CGPA: 8.8/10) with practical experience in AI computer vision, Python, React, Flask, and SQL.",
     siteName: "Aathidasan R Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aathidasan R | Java Developer | Software Developer",
+    title: "Aathidasan R | Java Full Stack Developer & AI Enthusiast",
     description:
-      "Aathidasan R is a Java developer and software developer fresher with experience in AI, web development, Python, SQL, and practical software projects.",
+      "Aathidasan R is a Java Full Stack Developer and B.Sc. IT graduate (CGPA: 8.8/10) with practical experience in AI computer vision, Python, React, Flask, and SQL.",
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
   },
   alternates: {
     canonical: "https://aathidasan-ai-portfoli-craft.lovable.app",
@@ -85,31 +78,21 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Aathidasan R",
-    jobTitle: "Java Developer",
+    jobTitle: "Java Full Stack Developer",
     description:
-      "Passionate software developer fresher focused on Java, web technologies, and AI, building practical solutions while continuously improving development skills.",
+      "B.Sc. Information Technology graduate with a CGPA of 8.8/10 and aspiring Java Full Stack Developer with strong foundation in Java, Python, React, SQL, and AI computer vision.",
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Chennai",
+      addressLocality: "Nagapattinam / Chennai",
       addressRegion: "Tamil Nadu",
       addressCountry: "India",
     },
     alumniOf: {
       "@type": "EducationalOrganization",
-      name: "PRIST University, Thanjavur",
+      name: "Ponnaiyah Ramajayam Institute of Science & Technology (PRIST), Thanjavur",
     },
-    knowsAbout: [
-      "Java",
-      "Python",
-      "JavaScript",
-      "SQL",
-      "React",
-      "Artificial Intelligence",
-      "Computer Vision",
-      "Object Detection",
-      "Software Development",
-    ],
     url: "https://aathidasan-ai-portfoli-craft.lovable.app",
+    sameAs: ["https://www.linkedin.com/in/aathi-dasan-386513352"],
   };
 
   return (
@@ -121,11 +104,11 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${firaCode.variable} font-sans bg-black text-white antialiased min-h-screen relative selection:bg-white selection:text-black`}
+        className={`${inter.variable} ${firaCode.variable} font-sans bg-[#110720] text-white antialiased min-h-screen relative selection:bg-purple-500/40 selection:text-white`}
       >
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 bg-white text-black rounded font-medium shadow-lg transition-transform"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 bg-purple-600 text-white rounded font-medium shadow-lg transition-transform"
         >
           Skip to main content
         </a>

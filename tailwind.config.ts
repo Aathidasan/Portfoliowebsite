@@ -10,61 +10,32 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#000000",
+        background: "#110720",
         surface: {
-          50: "#27272A",
-          100: "#18181B",
-          200: "#09090B",
-          300: "#000000",
+          50: "#1E0B36",
+          100: "#1A0A30",
+          200: "#140826",
+          300: "#110720",
         },
-        studio: {
-          bg: "#000000",
-          card: "#09090B",
-          elevated: "#121214",
-          border: "rgba(255, 255, 255, 0.08)",
-          "border-hover": "rgba(255, 255, 255, 0.2)",
-          subtle: "#71717A",
-          muted: "#A1A1AA",
-          text: "#FAFAFA",
-        },
-        primary: {
-          DEFAULT: "#FFFFFF",
-          hover: "#E4E4E7",
-          dark: "#A1A1AA",
-        },
-        accent: {
-          DEFAULT: "#00F0FF",
-          subtle: "rgba(0, 240, 255, 0.15)",
+        purple: {
+          400: "#C084FC",
+          500: "#A855F7",
+          600: "#9333EA",
+          700: "#7E22CE",
+          800: "#6B21A8",
+          900: "#581C87",
+          950: "#3B0764",
         },
       },
       fontFamily: {
         sans: ["var(--font-inter)", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
-        mono: ["var(--font-fira-code)", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
+        mono: ["var(--font-fira-code)", "monospace"],
       },
-      animation: {
-        "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-        "glow": "glow 3s ease-in-out infinite alternate",
-        "laser": "laser 3s linear infinite",
-      },
-      keyframes: {
-        glow: {
-          "0%": { opacity: "0.3" },
-          "100%": { opacity: "0.7" },
-        },
-        laser: {
-          "0%": { transform: "translateX(-100%)" },
-          "100%": { transform: "translateX(100%)" },
-        },
-      },
-      backgroundImage: {
-        "grid-matrix": "radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px)",
-        "hairline-gradient": "linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%)",
-        "studio-glow": "radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.06) 0%, transparent 70%)",
+      borderWidth: {
+        '3': '3px',
       },
       boxShadow: {
-        "studio": "0 0 0 1px rgba(255, 255, 255, 0.08), 0 8px 24px -4px rgba(0, 0, 0, 0.8)",
-        "studio-hover": "0 0 0 1px rgba(255, 255, 255, 0.2), 0 16px 36px -4px rgba(0, 0, 0, 0.9)",
-        "studio-highlight": "0 0 30px -5px rgba(255, 255, 255, 0.1)",
+        'purple-glow': '0 0 35px -5px rgba(168, 85, 247, 0.4)',
       },
     },
   },

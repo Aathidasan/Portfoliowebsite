@@ -12,6 +12,8 @@ import {
   ExternalLink,
   Copy,
   Check,
+  Linkedin,
+  Globe,
 } from "lucide-react";
 import { PERSONAL_INFO } from "@/lib/constants";
 
@@ -102,297 +104,179 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 sm:py-28 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Column (5 cols) */}
-          <div className="lg:col-span-5 space-y-4">
-            <div>
-              <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest block mb-1">
-                06 / GET IN TOUCH
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-                Let's Build Something
-              </h2>
-              <p className="text-zinc-400 text-xs sm:text-sm mt-2 leading-relaxed">
-                I'm currently looking for entry-level opportunities where I can apply my Java, programming, web development, and AI skills while continuing to grow as a software developer.
-              </p>
-            </div>
+    <section id="contact" className="py-24 px-6 border-t border-white/10 relative">
+      <div className="container mx-auto max-w-6xl">
+        {/* Signature Contact Header (Matching Reference Site) */}
+        <div className="text-center mb-14">
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+            Contact
+          </h2>
+          <p className="text-base sm:text-lg text-white/80 max-w-2xl mx-auto mb-6 leading-relaxed">
+            I'm currently looking to join a cross-functional software engineering team that values building impactful solutions, or have an opportunity in mind? Let's connect.
+          </p>
 
-            {/* Direct Details Cards */}
-            <div className="space-y-2.5 pt-2">
-              {/* Email */}
-              <div className="studio-card p-4 flex items-center justify-between group">
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-lg bg-zinc-900 border border-white/10 flex items-center justify-center text-white">
-                    <Mail className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider block">
-                      Email Address
-                    </span>
-                    <a
-                      href={`mailto:${PERSONAL_INFO.email}`}
-                      className="text-xs sm:text-sm font-semibold text-white hover:underline"
-                    >
-                      {PERSONAL_INFO.email}
-                    </a>
-                  </div>
-                </div>
+          <a
+            href={`mailto:${PERSONAL_INFO.email}`}
+            className="text-lg sm:text-xl text-purple-400 hover:text-purple-300 font-medium transition-colors inline-block"
+          >
+            {PERSONAL_INFO.email}
+          </a>
 
-                <button
-                  onClick={handleCopyEmail}
-                  aria-label="Copy email"
-                  className="p-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white transition-colors border border-white/10"
-                  title="Copy email"
-                >
-                  {copiedEmail ? (
-                    <Check className="w-4 h-4 text-emerald-400" />
-                  ) : (
-                    <Copy className="w-4 h-4" />
-                  )}
-                </button>
-              </div>
+          {/* Social Icons Strip (Matching Reference Site) */}
+          <div className="flex justify-center items-center gap-4 mt-8">
+            {PERSONAL_INFO.linkedin && (
+              <a
+                href={PERSONAL_INFO.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-11 h-11 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-purple-500/30 hover:border-purple-500/60 transition-all text-white hover:text-purple-300 shadow-lg shadow-purple-950/50"
+                aria-label="LinkedIn Profile"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+            )}
 
-              {/* Phone */}
-              <div className="studio-card p-4 flex items-center justify-between group">
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-lg bg-zinc-900 border border-white/10 flex items-center justify-center text-white">
-                    <Phone className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider block">
-                      Direct Phone
-                    </span>
-                    <a
-                      href={`tel:${PERSONAL_INFO.phone}`}
-                      className="text-xs sm:text-sm font-semibold text-white hover:underline"
-                    >
-                      {PERSONAL_INFO.phone}
-                    </a>
-                  </div>
-                </div>
+            <a
+              href={`mailto:${PERSONAL_INFO.email}`}
+              className="w-11 h-11 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-purple-500/30 hover:border-purple-500/60 transition-all text-white hover:text-purple-300 shadow-lg shadow-purple-950/50"
+              aria-label="Email Aathidasan"
+            >
+              <Mail className="w-5 h-5" />
+            </a>
 
-                <button
-                  onClick={handleCopyPhone}
-                  aria-label="Copy phone"
-                  className="p-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white transition-colors border border-white/10"
-                  title="Copy phone"
-                >
-                  {copiedPhone ? (
-                    <Check className="w-4 h-4 text-emerald-400" />
-                  ) : (
-                    <Copy className="w-4 h-4" />
-                  )}
-                </button>
-              </div>
+            <a
+              href={`tel:${PERSONAL_INFO.phone}`}
+              className="w-11 h-11 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-purple-500/30 hover:border-purple-500/60 transition-all text-white hover:text-purple-300 shadow-lg shadow-purple-950/50"
+              aria-label="Call Aathidasan"
+            >
+              <Phone className="w-5 h-5" />
+            </a>
 
-              {/* Location */}
-              <div className="studio-card p-4 flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-zinc-900 border border-white/10 flex items-center justify-center text-white">
-                  <MapPin className="w-4 h-4" />
-                </div>
-                <div>
-                  <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider block">
-                    Location
-                  </span>
-                  <p className="text-xs sm:text-sm font-semibold text-white">
-                    {PERSONAL_INFO.location}
-                  </p>
-                </div>
-              </div>
-
-              {/* Portfolio Link */}
-              <div className="studio-card p-4 flex items-center justify-between">
-                <div>
-                  <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider block">
-                    Portfolio Platform
-                  </span>
-                  <p className="text-xs font-mono text-zinc-300 truncate max-w-[200px] sm:max-w-xs mt-0.5">
-                    aathidasan-ai-portfoli-craft.lovable.app
-                  </p>
-                </div>
-                <a
-                  href={PERSONAL_INFO.portfolioUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white transition-colors border border-white/10"
-                  aria-label="Open portfolio"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
+            <a
+              href={PERSONAL_INFO.portfolioUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-11 h-11 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-purple-500/30 hover:border-purple-500/60 transition-all text-white hover:text-purple-300 shadow-lg shadow-purple-950/50"
+              aria-label="Portfolio Platform"
+            >
+              <Globe className="w-5 h-5" />
+            </a>
           </div>
+        </div>
 
-          {/* Right Column: Accessible Message Form (7 cols) */}
-          <div className="lg:col-span-7">
-            <div className="studio-card p-6 sm:p-8">
-              <h3 className="text-lg font-bold text-white mb-1">
-                Send a Message
-              </h3>
-              <p className="text-xs text-zinc-400 mb-5">
-                Fill in the details below to dispatch an email inquiry directly to Aathidasan.
+        {/* Message Composer Card */}
+        <div className="max-w-2xl mx-auto bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-white/10 shadow-2xl">
+          <h3 className="text-xl font-bold text-white mb-2 text-center">
+            Send an Direct Inquiry
+          </h3>
+          <p className="text-xs sm:text-sm text-white/70 mb-6 text-center">
+            Send a message regarding opportunities, full-time roles, or software projects.
+          </p>
+
+          {submitted ? (
+            <div className="p-6 rounded-xl bg-purple-950/60 border border-purple-500/40 text-center space-y-3">
+              <CheckCircle2 className="w-10 h-10 text-emerald-400 mx-auto" />
+              <h4 className="text-lg font-bold text-white">Message Prepared!</h4>
+              <p className="text-xs sm:text-sm text-white/80">
+                Your email client has been prepared with your inquiry addressed to{" "}
+                <strong className="text-purple-300">{PERSONAL_INFO.email}</strong>.
               </p>
-
-              {submitted ? (
-                <div className="p-6 rounded-xl bg-zinc-950 border border-white/10 text-center space-y-3">
-                  <div className="w-10 h-10 rounded-full bg-zinc-900 border border-white/20 text-white mx-auto flex items-center justify-center">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-                  </div>
-                  <h4 className="text-base font-bold text-white">
-                    Message Prepared!
-                  </h4>
-                  <p className="text-xs text-zinc-400 max-w-md mx-auto">
-                    Your native email client has been prepared with your inquiry addressed to{" "}
-                    <strong className="text-white">{PERSONAL_INFO.email}</strong>.
-                  </p>
-                  <button
-                    onClick={() => {
-                      setSubmitted(false);
-                      setFormData({ name: "", email: "", subject: "", message: "" });
+              <button
+                onClick={() => {
+                  setSubmitted(false);
+                  setFormData({ name: "", email: "", subject: "", message: "" });
+                }}
+                className="mt-2 px-4 py-2 rounded-lg bg-white/10 text-white text-xs font-semibold hover:bg-white/20"
+              >
+                Send Another Message
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} noValidate className="space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="name" className="block text-xs font-medium text-white/80 mb-1">
+                    Your Name *
+                  </label>
+                  <input
+                    id="name"
+                    type="text"
+                    value={formData.name}
+                    onChange={(e) => {
+                      setFormData({ ...formData, name: e.target.value });
+                      if (errors.name) setErrors({ ...errors, name: undefined });
                     }}
-                    className="btn-secondary-outline px-4 py-2 text-xs font-medium"
-                  >
-                    Send Another Message
-                  </button>
+                    placeholder="e.g. Hiring Manager"
+                    className="w-full px-4 py-2.5 rounded-lg bg-black/40 border border-white/10 text-white text-sm focus:outline-none focus:border-purple-500"
+                  />
+                  {errors.name && <p className="text-xs text-rose-400 mt-1">{errors.name}</p>}
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} noValidate className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label
-                        htmlFor="contact-name"
-                        className="block text-xs font-mono text-zinc-400 mb-1"
-                      >
-                        Your Name <span className="text-rose-400">*</span>
-                      </label>
-                      <input
-                        id="contact-name"
-                        type="text"
-                        value={formData.name}
-                        onChange={(e) => {
-                          setFormData({ ...formData, name: e.target.value });
-                          if (errors.name) setErrors({ ...errors, name: undefined });
-                        }}
-                        placeholder="e.g. Hiring Manager"
-                        aria-invalid={!!errors.name}
-                        aria-describedby={errors.name ? "name-error" : undefined}
-                        className={`w-full px-3.5 py-2.5 rounded-lg bg-black border text-white placeholder:text-zinc-600 text-sm focus:outline-none focus:border-white transition-colors ${
-                          errors.name ? "border-rose-500" : "border-white/10"
-                        }`}
-                      />
-                      {errors.name && (
-                        <p id="name-error" className="text-xs text-rose-400 mt-1 flex items-center gap-1">
-                          <AlertCircle className="w-3 h-3" />
-                          <span>{errors.name}</span>
-                        </p>
-                      )}
-                    </div>
 
-                    <div>
-                      <label
-                        htmlFor="contact-email"
-                        className="block text-xs font-mono text-zinc-400 mb-1"
-                      >
-                        Email Address <span className="text-rose-400">*</span>
-                      </label>
-                      <input
-                        id="contact-email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => {
-                          setFormData({ ...formData, email: e.target.value });
-                          if (errors.email) setErrors({ ...errors, email: undefined });
-                        }}
-                        placeholder="name@company.com"
-                        aria-invalid={!!errors.email}
-                        aria-describedby={errors.email ? "email-error" : undefined}
-                        className={`w-full px-3.5 py-2.5 rounded-lg bg-black border text-white placeholder:text-zinc-600 text-sm focus:outline-none focus:border-white transition-colors ${
-                          errors.email ? "border-rose-500" : "border-white/10"
-                        }`}
-                      />
-                      {errors.email && (
-                        <p id="email-error" className="text-xs text-rose-400 mt-1 flex items-center gap-1">
-                          <AlertCircle className="w-3 h-3" />
-                          <span>{errors.email}</span>
-                        </p>
-                      )}
-                    </div>
-                  </div>
+                <div>
+                  <label htmlFor="email" className="block text-xs font-medium text-white/80 mb-1">
+                    Your Email *
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => {
+                      setFormData({ ...formData, email: e.target.value });
+                      if (errors.email) setErrors({ ...errors, email: undefined });
+                    }}
+                    placeholder="name@company.com"
+                    className="w-full px-4 py-2.5 rounded-lg bg-black/40 border border-white/10 text-white text-sm focus:outline-none focus:border-purple-500"
+                  />
+                  {errors.email && <p className="text-xs text-rose-400 mt-1">{errors.email}</p>}
+                </div>
+              </div>
 
-                  <div>
-                    <label
-                      htmlFor="contact-subject"
-                      className="block text-xs font-mono text-zinc-400 mb-1"
-                    >
-                      Subject <span className="text-rose-400">*</span>
-                    </label>
-                    <input
-                      id="contact-subject"
-                      type="text"
-                      value={formData.subject}
-                      onChange={(e) => {
-                        setFormData({ ...formData, subject: e.target.value });
-                        if (errors.subject) setErrors({ ...errors, subject: undefined });
-                      }}
-                      placeholder="e.g. Entry-Level Java Developer Role"
-                      aria-invalid={!!errors.subject}
-                      aria-describedby={errors.subject ? "subject-error" : undefined}
-                      className={`w-full px-3.5 py-2.5 rounded-lg bg-black border text-white placeholder:text-zinc-600 text-sm focus:outline-none focus:border-white transition-colors ${
-                        errors.subject ? "border-rose-500" : "border-white/10"
-                      }`}
-                    />
-                    {errors.subject && (
-                      <p id="subject-error" className="text-xs text-rose-400 mt-1 flex items-center gap-1">
-                        <AlertCircle className="w-3 h-3" />
-                        <span>{errors.subject}</span>
-                      </p>
-                    )}
-                  </div>
+              <div>
+                <label htmlFor="subject" className="block text-xs font-medium text-white/80 mb-1">
+                  Subject *
+                </label>
+                <input
+                  id="subject"
+                  type="text"
+                  value={formData.subject}
+                  onChange={(e) => {
+                    setFormData({ ...formData, subject: e.target.value });
+                    if (errors.subject) setErrors({ ...errors, subject: undefined });
+                  }}
+                  placeholder="e.g. Entry-Level Java Full Stack Developer Role"
+                  className="w-full px-4 py-2.5 rounded-lg bg-black/40 border border-white/10 text-white text-sm focus:outline-none focus:border-purple-500"
+                />
+                {errors.subject && <p className="text-xs text-rose-400 mt-1">{errors.subject}</p>}
+              </div>
 
-                  <div>
-                    <label
-                      htmlFor="contact-message"
-                      className="block text-xs font-mono text-zinc-400 mb-1"
-                    >
-                      Message <span className="text-rose-400">*</span>
-                    </label>
-                    <textarea
-                      id="contact-message"
-                      rows={4}
-                      value={formData.message}
-                      onChange={(e) => {
-                        setFormData({ ...formData, message: e.target.value });
-                        if (errors.message) setErrors({ ...errors, message: undefined });
-                      }}
-                      placeholder="Describe the opportunity or project..."
-                      aria-invalid={!!errors.message}
-                      aria-describedby={errors.message ? "message-error" : undefined}
-                      className={`w-full px-3.5 py-2.5 rounded-lg bg-black border text-white placeholder:text-zinc-600 text-sm focus:outline-none focus:border-white transition-colors resize-y ${
-                        errors.message ? "border-rose-500" : "border-white/10"
-                      }`}
-                    />
-                    {errors.message && (
-                      <p id="message-error" className="text-xs text-rose-400 mt-1 flex items-center gap-1">
-                        <AlertCircle className="w-3 h-3" />
-                        <span>{errors.message}</span>
-                      </p>
-                    )}
-                  </div>
+              <div>
+                <label htmlFor="message" className="block text-xs font-medium text-white/80 mb-1">
+                  Message *
+                </label>
+                <textarea
+                  id="message"
+                  rows={4}
+                  value={formData.message}
+                  onChange={(e) => {
+                    setFormData({ ...formData, message: e.target.value });
+                    if (errors.message) setErrors({ ...errors, message: undefined });
+                  }}
+                  placeholder="Describe your role or opportunity..."
+                  className="w-full px-4 py-2.5 rounded-lg bg-black/40 border border-white/10 text-white text-sm focus:outline-none focus:border-purple-500 resize-y"
+                />
+                {errors.message && <p className="text-xs text-rose-400 mt-1">{errors.message}</p>}
+              </div>
 
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="btn-primary-white w-full py-3 text-sm flex items-center justify-center gap-2 active:scale-95 disabled:opacity-50"
-                  >
-                    <Send className="w-4 h-4" />
-                    <span>{isSubmitting ? "Opening Email..." : "Send Message"}</span>
-                  </button>
-                </form>
-              )}
-            </div>
-          </div>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full py-3 rounded-lg bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white font-semibold text-sm shadow-lg shadow-purple-900/50 transition-all flex items-center justify-center gap-2"
+              >
+                <Send className="w-4 h-4" />
+                <span>{isSubmitting ? "Opening Email..." : "Send Message"}</span>
+              </button>
+            </form>
+          )}
         </div>
       </div>
     </section>
