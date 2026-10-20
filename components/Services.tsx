@@ -23,27 +23,23 @@ const ICON_MAP: Record<string, any> = {
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 sm:py-28 relative overflow-hidden">
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/3 -left-36 w-96 h-96 bg-purple-600/10 rounded-full blur-[140px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-mono mb-3">
-            <Code2 className="w-3 h-3 text-cyan-400" />
-            <span>SOLUTIONS & CAPABILITIES</span>
-          </div>
+    <section id="services" className="py-20 sm:py-28 border-b border-white/[0.08] relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Studio Header */}
+        <div className="mb-14">
+          <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest block mb-1">
+            05 / CAPABILITIES & OUTPUTS
+          </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            What I <span className="gradient-accent">Can Build</span>
+            What I Can Build
           </h2>
-          <p className="text-slate-400 text-xs sm:text-sm md:text-base mt-2">
+          <p className="text-zinc-400 text-xs sm:text-sm mt-1 max-w-2xl">
             Targeted software solutions built with strong programming fundamentals, modern web standards, and reliable database structures.
           </p>
         </div>
 
-        {/* 6 Capabilities Bento Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* 6 Capabilities Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {SERVICES.map((item, idx) => {
             const Icon = ICON_MAP[item.icon] || Code2;
 
@@ -53,29 +49,26 @@ export default function Services() {
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.08, duration: 0.4 }}
-                className="bento-card p-6 sm:p-7 flex flex-col justify-between group"
+                transition={{ delay: idx * 0.05, duration: 0.3 }}
+                className="studio-card p-6 flex flex-col justify-between group"
               >
                 <div>
-                  <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 group-hover:border-cyan-500/50 flex items-center justify-center text-cyan-400 group-hover:text-cyan-300 transition-colors mb-5">
-                    <Icon className="w-6 h-6" />
+                  <div className="w-10 h-10 rounded-lg bg-zinc-900 border border-white/10 flex items-center justify-center text-white mb-4 group-hover:border-white/30 transition-colors">
+                    <Icon className="w-5 h-5 text-zinc-300" />
                   </div>
 
-                  <h3 className="text-lg font-bold text-white group-hover:text-cyan-200 transition-colors tracking-tight">
+                  <h3 className="text-base font-bold text-white group-hover:text-zinc-200 transition-colors">
                     {item.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-slate-400 mt-2.5 leading-relaxed">
+                  <p className="text-xs text-zinc-400 mt-2 leading-relaxed">
                     {item.description}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-white/5 flex flex-wrap gap-1.5">
+                <div className="mt-5 pt-3.5 border-t border-white/[0.06] flex flex-wrap gap-1.5">
                   {item.technologies.map((t) => (
-                    <span
-                      key={t}
-                      className="text-[10px] font-mono px-2 py-0.5 rounded bg-black/40 text-slate-300 border border-white/10"
-                    >
+                    <span key={t} className="studio-tag">
                       {t}
                     </span>
                   ))}

@@ -3,103 +3,87 @@
 import { motion } from "framer-motion";
 import {
   Briefcase,
-  Calendar,
   Building2,
   Clock,
-  Sparkles,
   CheckCircle2,
-  MapPin,
-  ArrowRight,
 } from "lucide-react";
 import { EXPERIENCES } from "@/lib/constants";
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 sm:py-28 relative overflow-hidden">
-      {/* Background radial accent */}
-      <div className="absolute top-1/4 -right-40 w-96 h-96 bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-mono mb-3">
-            <Sparkles className="w-3 h-3 text-cyan-400" />
-            <span>TRAINING & INTERNSHIP MILESTONES</span>
-          </div>
+    <section id="experience" className="py-20 sm:py-28 border-b border-white/[0.08] relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Studio Header */}
+        <div className="mb-14">
+          <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest block mb-1">
+            03 / EXPERIENCE & TRAINING
+          </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Experience & <span className="gradient-accent">Training</span>
+            Milestones & Internships
           </h2>
-          <p className="text-slate-400 text-xs sm:text-sm md:text-base mt-2">
+          <p className="text-zinc-400 text-xs sm:text-sm mt-1 max-w-2xl">
             Practical development immersion through verified internships and active professional Java training, clearly distinguished for hiring transparency.
           </p>
         </div>
 
-        {/* Bento Timeline Grid */}
-        <div className="space-y-6 max-w-4xl mx-auto">
+        {/* Timeline Stack */}
+        <div className="space-y-4 max-w-4xl">
           {EXPERIENCES.map((item, idx) => {
             const isTraining = item.type === "training";
 
             return (
               <motion.div
                 key={item.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: idx * 0.1 }}
-                className={`bento-card p-6 sm:p-8 ${
-                  isTraining ? "border-indigo-500/40 shadow-neon-indigo" : ""
-                }`}
+                transition={{ duration: 0.35, delay: idx * 0.08 }}
+                className="studio-card p-6"
               >
-                {/* Card Top Meta */}
-                <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-white/10">
+                {/* Top Meta */}
+                <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-white/[0.08]">
                   <div className="flex items-center gap-2">
-                    <span
-                      className={`text-[11px] font-mono px-3 py-1 rounded-full uppercase tracking-wider font-semibold ${
-                        isTraining
-                          ? "bg-indigo-500/20 text-cyan-300 border border-indigo-500/40"
-                          : "bg-white/5 text-purple-300 border border-white/10"
-                      }`}
-                    >
-                      {isTraining ? "Professional Training" : "Internship Experience"}
+                    <span className="studio-tag">
+                      {isTraining ? "PROFESSIONAL TRAINING" : "INTERNSHIP"}
                     </span>
-                    <span className="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                    <span className="text-[10px] font-mono text-zinc-400 bg-zinc-900 px-2 py-0.5 rounded border border-white/10">
                       {item.status}
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-1.5 text-xs text-slate-400 font-mono">
-                    <Clock className="w-3.5 h-3.5 text-cyan-400" />
+                  <div className="flex items-center gap-1.5 text-xs text-zinc-400 font-mono">
+                    <Clock className="w-3.5 h-3.5 text-zinc-500" />
                     <span>{item.period}</span>
                   </div>
                 </div>
 
-                {/* Role & Org */}
-                <div className="mt-4 space-y-1.5">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                {/* Main Role & Org */}
+                <div className="mt-4 space-y-1">
+                  <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
                     {item.role}
                   </h3>
-                  <div className="flex flex-wrap items-center gap-2 text-xs text-indigo-300 font-medium">
-                    <Building2 className="w-3.5 h-3.5 text-indigo-400" />
-                    <span className="text-white font-semibold">{item.organization}</span>
-                    <span className="text-slate-600">•</span>
-                    <span className="text-slate-400">{item.location}</span>
+                  <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-400 font-mono">
+                    <Building2 className="w-3.5 h-3.5 text-zinc-500" />
+                    <span className="text-zinc-200 font-medium">{item.organization}</span>
+                    <span>•</span>
+                    <span>{item.location}</span>
                   </div>
                 </div>
 
                 {/* Description */}
-                <p className="mt-3.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <p className="mt-3 text-xs sm:text-sm text-zinc-300 leading-relaxed">
                   {item.description}
                 </p>
 
                 {/* Highlights */}
-                <div className="mt-5 space-y-2 pt-4 border-t border-white/5">
-                  <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wide">
-                    Key Practical Learning & Responsibilities:
+                <div className="mt-4 space-y-1.5 pt-3.5 border-t border-white/[0.06]">
+                  <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wide">
+                    Practical Focus & Key Learnings:
                   </span>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-zinc-300">
                     {item.highlights.map((h, i) => (
                       <div key={i} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-zinc-400 flex-shrink-0 mt-0.5" />
                         <span>{h}</span>
                       </div>
                     ))}
@@ -107,12 +91,9 @@ export default function Experience() {
                 </div>
 
                 {/* Technologies */}
-                <div className="mt-5 pt-3.5 border-t border-white/5 flex flex-wrap gap-1.5">
+                <div className="mt-4 pt-3 border-t border-white/[0.06] flex flex-wrap gap-1.5">
                   {item.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-[11px] font-mono px-2.5 py-0.5 rounded-lg bg-black/40 text-slate-300 border border-white/10"
-                    >
+                    <span key={tech} className="studio-tag">
                       {tech}
                     </span>
                   ))}

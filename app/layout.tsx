@@ -15,7 +15,7 @@ const firaCode = Fira_Code({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0B1120",
+  themeColor: "#000000",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -121,11 +121,11 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${firaCode.variable} font-sans bg-[#0B1120] text-slate-100 antialiased min-h-screen relative selection:bg-indigo-500/30 selection:text-white`}
+        className={`${inter.variable} ${firaCode.variable} font-sans bg-black text-white antialiased min-h-screen relative selection:bg-white selection:text-black`}
       >
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 bg-indigo-600 text-white rounded-md font-medium shadow-lg transition-transform"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 bg-white text-black rounded font-medium shadow-lg transition-transform"
         >
           Skip to main content
         </a>

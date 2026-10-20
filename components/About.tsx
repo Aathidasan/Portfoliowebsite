@@ -3,15 +3,9 @@
 import { motion } from "framer-motion";
 import {
   GraduationCap,
-  Calendar,
-  CheckCircle2,
-  Sparkles,
   Building2,
-  Cpu,
   Layers,
-  MapPin,
-  BookOpen,
-  Terminal,
+  CheckCircle2,
   ArrowRight,
 } from "lucide-react";
 import { PERSONAL_INFO, EDUCATION, EXPERIENCES } from "@/lib/constants";
@@ -21,132 +15,127 @@ export default function About() {
   const internships = EXPERIENCES.filter((e) => e.type === "internship");
 
   return (
-    <section id="about" className="py-20 sm:py-28 relative overflow-hidden">
-      {/* Background radial accent */}
-      <div className="absolute top-1/2 -left-40 w-96 h-96 bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-96 h-96 bg-cyan-600/10 rounded-full blur-[140px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-mono mb-3">
-            <Sparkles className="w-3 h-3 text-cyan-400" />
-            <span>BACKGROUND & ACADEMICS</span>
-          </div>
+    <section id="about" className="py-20 sm:py-28 border-b border-white/[0.08] relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Studio Header */}
+        <div className="mb-14">
+          <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest block mb-1">
+            01 / CANDIDATE BACKGROUND
+          </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            About <span className="gradient-accent">Me</span>
+            About & Education
           </h2>
-          <p className="text-slate-400 text-xs sm:text-sm md:text-base mt-2">
-            A motivated fresher committed to building software solutions with solid Java fundamentals, verified internships, and practical AI implementations.
+          <p className="text-zinc-400 text-xs sm:text-sm mt-1 max-w-2xl">
+            A motivated fresher with solid Core Java fundamentals, active professional training, and practical exposure to AI computer vision and web development.
           </p>
         </div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6">
-          {/* Bento Card 1: Narrative Journey (lg:col-span-7) */}
+        {/* Studio Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          {/* Narrative Card (7 cols) */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="lg:col-span-7 bento-card p-6 sm:p-8 flex flex-col justify-between"
+            transition={{ duration: 0.4 }}
+            className="lg:col-span-7 studio-card p-6 sm:p-8 flex flex-col justify-between"
           >
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <span className="w-2.5 h-2.5 rounded-full bg-indigo-400" />
-                <h3 className="text-xl font-bold text-white tracking-tight">
-                  Passionate Developer & Continuous Learner
+                <span className="w-1.5 h-1.5 bg-white rounded-full" />
+                <h3 className="text-lg font-bold text-white tracking-tight">
+                  Software Developer Fresher & Java Engineer
                 </h3>
               </div>
 
-              <div className="space-y-4 text-slate-300 text-xs sm:text-sm leading-relaxed">
+              <div className="space-y-4 text-zinc-300 text-xs sm:text-sm leading-relaxed">
                 <p>
                   I am a fresh Information Technology graduate from{" "}
                   <strong className="text-white font-semibold">PRIST University, Thanjavur (Class of 2026)</strong>
-                  . My focus is centered on software development, object-oriented design, relational databases, and applying modern AI solutions to real-world tasks.
+                  . My engineering focus lies in Java programming, clean object-oriented architecture, database query structures, and practical AI applications.
                 </p>
 
                 <p>
-                  To transition smoothly from academic theory to industry-standard engineering, I am currently enrolled in the intensive{" "}
-                  <strong className="text-indigo-300 font-semibold">
-                    6-Month Java Development Course at QSpiders, Velachery (Chennai)
+                  To bridge academic concepts with production-standard engineering, I am currently undergoing intensive{" "}
+                  <strong className="text-white font-semibold">
+                    6-Month Java Development Training at QSpiders, Velachery (Chennai)
                   </strong>
-                  . Here, I write structured code, solve data-structure algorithms, and master relational database query optimization.
+                  . My daily training includes Core Java, collections, exception handling, data structures, and relational Oracle SQL optimization.
                 </p>
 
                 <p>
-                  Through dual internships at <strong className="text-cyan-300">The Mind IT</strong> and{" "}
-                  <strong className="text-purple-300">Novi Tech</strong>, I have worked directly on AI-driven computer vision and full-stack web applications, sharpening my ability to learn rapidly and contribute effectively.
+                  My internship exposures at <strong className="text-zinc-100">The Mind IT</strong> (AI & Python workflows) and{" "}
+                  <strong className="text-zinc-100">Novi Tech</strong> (Full-stack web applications) provided valuable practical exposure to development workflows and engineering collaboration.
                 </p>
               </div>
             </div>
 
             {/* Competency Checkmarks */}
-            <div className="mt-6 pt-5 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-slate-300">
+            <div className="mt-6 pt-5 border-t border-white/[0.08] grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-zinc-300">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-zinc-400 flex-shrink-0" />
                 <span>Core Java & OOP Principles</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                <span>SQL & Relational Databases</span>
+                <CheckCircle2 className="w-4 h-4 text-zinc-400 flex-shrink-0" />
+                <span>SQL & Relational Schema Design</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-zinc-400 flex-shrink-0" />
                 <span>Python & Computer Vision (YOLO)</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-zinc-400 flex-shrink-0" />
                 <span>Modern Web & React Components</span>
               </div>
             </div>
           </motion.div>
 
-          {/* Bento Card 2: Higher Education (lg:col-span-5) */}
+          {/* Education Card (5 cols) */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="lg:col-span-5 bento-card p-6 sm:p-7 flex flex-col justify-between"
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="lg:col-span-5 studio-card p-6 sm:p-7 flex flex-col justify-between"
           >
             <div>
-              <div className="flex items-center justify-between pb-4 border-b border-white/10">
-                <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-xl bg-cyan-500/10 border border-cyan-500/25 flex items-center justify-center text-cyan-400">
-                    <GraduationCap className="w-5 h-5" />
+              <div className="flex items-center justify-between pb-3.5 border-b border-white/[0.08]">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-9 h-9 rounded-lg bg-zinc-900 border border-white/10 flex items-center justify-center text-white">
+                    <GraduationCap className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono text-cyan-400 uppercase tracking-wider font-semibold">
+                    <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-wider block">
                       Undergraduate Degree
                     </span>
-                    <h4 className="text-base sm:text-lg font-bold text-white tracking-tight">
+                    <h4 className="text-base font-bold text-white">
                       {EDUCATION.degree}
                     </h4>
                   </div>
                 </div>
 
-                <span className="font-mono text-xs font-semibold px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
+                <span className="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-zinc-900 text-zinc-200 border border-white/10">
                   {EDUCATION.year}
                 </span>
               </div>
 
               <div className="py-4 space-y-2">
-                <p className="text-xs font-semibold text-slate-200">
+                <p className="text-xs font-semibold text-zinc-200">
                   {EDUCATION.university} • {EDUCATION.location}
                 </p>
-                <p className="text-xs text-slate-400 leading-relaxed">
+                <p className="text-xs text-zinc-400 leading-relaxed">
                   {EDUCATION.description}
                 </p>
 
-                <div className="space-y-1.5 pt-2">
-                  <span className="text-[11px] font-mono text-slate-500 uppercase tracking-wide">
-                    Core Academic Highlights:
+                <div className="space-y-1 pt-2">
+                  <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wide">
+                    Academic Focus Areas:
                   </span>
-                  <div className="space-y-1 text-xs text-slate-300">
+                  <div className="space-y-1 text-xs text-zinc-300">
                     {EDUCATION.highlights.map((h, i) => (
                       <div key={i} className="flex items-center gap-1.5">
-                        <span className="w-1 h-1 rounded-full bg-cyan-400" />
+                        <span className="w-1 h-1 rounded-full bg-zinc-400" />
                         <span>{h}</span>
                       </div>
                     ))}
@@ -155,45 +144,42 @@ export default function About() {
               </div>
             </div>
 
-            <div className="pt-3 border-t border-white/5 flex flex-wrap gap-1.5">
+            <div className="pt-3 border-t border-white/[0.08] flex flex-wrap gap-1.5">
               {EDUCATION.skills.map((s) => (
-                <span
-                  key={s}
-                  className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10"
-                >
+                <span key={s} className="studio-tag">
                   {s}
                 </span>
               ))}
             </div>
           </motion.div>
 
-          {/* Bento Card 3: Current Professional Training (lg:col-span-6) */}
+          {/* Professional Training Card (6 cols) */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="lg:col-span-6 bento-card p-6 sm:p-7 flex flex-col justify-between"
+            transition={{ duration: 0.4, delay: 0.15 }}
+            className="lg:col-span-6 studio-card p-6 flex flex-col justify-between"
           >
             <div>
-              <div className="flex items-center justify-between pb-3.5 border-b border-white/10">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/25 flex items-center justify-center text-indigo-400">
-                    <Building2 className="w-5 h-5" />
+              <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-9 h-9 rounded-lg bg-zinc-900 border border-white/10 flex items-center justify-center text-white">
+                    <Building2 className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="text-base font-bold text-white">Java Development Training</h4>
-                    <p className="text-xs text-indigo-300">QSpiders — Velachery, Chennai</p>
+                    <h4 className="text-sm font-bold text-white">Java Development Training</h4>
+                    <p className="text-xs text-zinc-400 font-mono">QSpiders — Velachery, Chennai</p>
                   </div>
                 </div>
-                <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full bg-indigo-500/15 text-indigo-300 border border-indigo-500/30">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-900 text-zinc-300 border border-white/10">
                   Current Course
                 </span>
               </div>
 
               <div className="py-4 space-y-3">
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  Rigorous 6-month hands-on immersion in object-oriented programming, data structures, SQL, and enterprise database fundamentals.
+                <p className="text-xs text-zinc-400 leading-relaxed">
+                  Intensive 6-month hands-on immersion in object-oriented programming, algorithmic problem solving, relational SQL queries, and Oracle database fundamentals.
                 </p>
 
                 <div className="flex flex-wrap gap-1.5">
@@ -207,10 +193,7 @@ export default function About() {
                     "Programming Fundamentals",
                     "Database Concepts",
                   ].map((topic) => (
-                    <span
-                      key={topic}
-                      className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10"
-                    >
+                    <span key={topic} className="studio-tag">
                       {topic}
                     </span>
                   ))}
@@ -218,58 +201,58 @@ export default function About() {
               </div>
             </div>
 
-            <div className="text-[11px] text-slate-400 pt-2 border-t border-white/5 flex items-center justify-between">
+            <div className="text-[11px] font-mono text-zinc-400 pt-2 border-t border-white/[0.08] flex items-center justify-between">
               <span>Status: Active Professional Training</span>
-              <span className="text-cyan-400 font-mono">6 Months</span>
+              <span className="text-white">6 Months</span>
             </div>
           </motion.div>
 
-          {/* Bento Card 4: Internship Exposure (lg:col-span-6) */}
+          {/* Internship Exposure Card (6 cols) */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="lg:col-span-6 bento-card p-6 sm:p-7 flex flex-col justify-between"
+            transition={{ duration: 0.4, delay: 0.2 }}
+            className="lg:col-span-6 studio-card p-6 flex flex-col justify-between"
           >
             <div>
-              <div className="flex items-center justify-between pb-3.5 border-b border-white/10">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/25 flex items-center justify-center text-purple-400">
-                    <Layers className="w-5 h-5" />
+              <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-9 h-9 rounded-lg bg-zinc-900 border border-white/10 flex items-center justify-center text-white">
+                    <Layers className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="text-base font-bold text-white">Internship Exposure</h4>
-                    <p className="text-xs text-purple-300">2 Verified Industry Placements</p>
+                    <h4 className="text-sm font-bold text-white">Internship Exposure</h4>
+                    <p className="text-xs text-zinc-400 font-mono">2 Verified Placements</p>
                   </div>
                 </div>
-                <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full bg-purple-500/15 text-purple-300 border border-purple-500/30">
-                  Practical Exposure
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-900 text-zinc-300 border border-white/10">
+                  Practical Learning
                 </span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 py-4">
-                <div className="bg-black/40 p-3 rounded-xl border border-white/5 space-y-1">
-                  <span className="text-[10px] font-mono text-cyan-300">01 • AI Intern</span>
+                <div className="bg-zinc-950 p-3 rounded-lg border border-white/[0.08] space-y-1">
+                  <span className="text-[10px] font-mono text-zinc-400">01 / AI Intern</span>
                   <h5 className="font-semibold text-white text-xs">The Mind IT — Trichy</h5>
-                  <p className="text-[11px] text-slate-400 leading-relaxed">
-                    AI fundamentals, Python scripting, computer vision workflows, and practical problem solving.
+                  <p className="text-[11px] text-zinc-400 leading-relaxed">
+                    AI fundamentals, Python scripting, computer vision workflows, and technical problem solving.
                   </p>
                 </div>
 
-                <div className="bg-black/40 p-3 rounded-xl border border-white/5 space-y-1">
-                  <span className="text-[10px] font-mono text-purple-300">02 • Full Stack Intern</span>
+                <div className="bg-zinc-950 p-3 rounded-lg border border-white/[0.08] space-y-1">
+                  <span className="text-[10px] font-mono text-zinc-400">02 / Full Stack Intern</span>
                   <h5 className="font-semibold text-white text-xs">Novi Tech</h5>
-                  <p className="text-[11px] text-slate-400 leading-relaxed">
-                    Frontend web technologies, responsive styling, backend fundamentals, and REST API flows.
+                  <p className="text-[11px] text-zinc-400 leading-relaxed">
+                    Frontend web development, responsive CSS, backend fundamentals, and REST API flows.
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="text-[11px] text-slate-400 pt-2 border-t border-white/5 flex items-center justify-between">
-              <span>Verified internship learning experiences</span>
-              <a href="#experience" className="text-indigo-400 hover:text-cyan-300 font-mono flex items-center gap-1">
+            <div className="text-[11px] font-mono text-zinc-400 pt-2 border-t border-white/[0.08] flex items-center justify-between">
+              <span>Verified internship experiences</span>
+              <a href="#experience" className="text-white hover:underline flex items-center gap-1">
                 <span>View Timeline</span>
                 <ArrowRight className="w-3 h-3" />
               </a>

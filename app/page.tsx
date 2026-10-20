@@ -18,14 +18,14 @@ export default function Home() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   return (
-    <div className="relative min-h-screen bg-[#0B1120] text-slate-100 overflow-x-hidden selection:bg-indigo-500/30 selection:text-white">
-      {/* Subtle Ambient Particle & Glow Canvas */}
+    <div className="relative min-h-screen bg-black text-white overflow-x-hidden selection:bg-white selection:text-black">
+      {/* Monochromatic Constellation Canvas */}
       <InteractiveCanvas />
 
       {/* Primary Sticky Header */}
       <Navbar onOpenResume={() => setIsResumeOpen(true)} />
 
-      {/* Main Content Area */}
+      {/* Main Studio Content */}
       <main id="main-content" className="relative z-10">
         <Hero onOpenResume={() => setIsResumeOpen(true)} />
         <About />
@@ -40,7 +40,7 @@ export default function Home() {
       {/* Footer */}
       <Footer />
 
-      {/* Full Interactive Resume Modal */}
+      {/* Interactive CV Modal */}
       <ResumeModal
         isOpen={isResumeOpen}
         onClose={() => setIsResumeOpen(false)}

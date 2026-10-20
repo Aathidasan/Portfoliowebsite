@@ -31,20 +31,21 @@ export default function InteractiveCanvas() {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    const colors = ["#4F46E5", "#7C3AED", "#06B6D4", "#60A5FA"];
-    const particleCount = Math.min(width > 768 ? 45 : 20, 50);
+    // Monochromatic clean studio particles
+    const colors = ["#FFFFFF", "#E4E4E7", "#A1A1AA", "#71717A"];
+    const particleCount = Math.min(width > 768 ? 40 : 18, 45);
 
     const particles: Particle[] = [];
     const mouse = { x: -1000, y: -1000, radius: 120 };
 
     for (let i = 0; i < particleCount; i++) {
-      const baseAlpha = Math.random() * 0.4 + 0.15;
+      const baseAlpha = Math.random() * 0.3 + 0.1;
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.4,
-        size: Math.random() * 2 + 1,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        size: Math.random() * 1.5 + 0.8,
         alpha: baseAlpha,
         baseAlpha,
         color: colors[Math.floor(Math.random() * colors.length)],
@@ -81,11 +82,11 @@ export default function InteractiveCanvas() {
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 130) {
-            const lineAlpha = (1 - dist / 130) * 0.12;
+          if (dist < 120) {
+            const lineAlpha = (1 - dist / 120) * 0.08;
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(99, 102, 241, ${lineAlpha})`;
-            ctx.lineWidth = 1;
+            ctx.strokeStyle = `rgba(255, 255, 255, ${lineAlpha})`;
+            ctx.lineWidth = 0.8;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
             ctx.stroke();
@@ -103,10 +104,10 @@ export default function InteractiveCanvas() {
         const dist = Math.sqrt(dx * dx + dy * dy);
 
         if (dist < mouse.radius) {
-          const force = (1 - dist / mouse.radius) * 1.5;
+          const force = (1 - dist / mouse.radius) * 1.2;
           p.x -= (dx / dist) * force;
           p.y -= (dy / dist) * force;
-          p.alpha = Math.min(1, p.baseAlpha + 0.4);
+          p.alpha = Math.min(0.8, p.baseAlpha + 0.4);
         } else {
           p.alpha = p.baseAlpha;
         }
@@ -147,7 +148,7 @@ export default function InteractiveCanvas() {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className="fixed inset-0 pointer-events-none z-0 opacity-60"
+      className="fixed inset-0 pointer-events-none z-0 opacity-40"
     />
   );
 }
