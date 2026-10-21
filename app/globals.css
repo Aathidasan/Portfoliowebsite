@@ -70,6 +70,25 @@ body {
   box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
 }
 
+/* Premium Avatar Frame */
+@keyframes avatar-spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes avatar-pulse-glow {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50%       { opacity: 0.85; transform: scale(1.06); }
+}
+
+.avatar-ring-spin {
+  animation: avatar-spin 8s linear infinite;
+}
+
+.avatar-glow-pulse {
+  animation: avatar-pulse-glow 3s ease-in-out infinite;
+}
+
 /* Code styling */
 code, pre {
   font-family: var(--font-fira-code), monospace;

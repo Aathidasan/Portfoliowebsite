@@ -67,27 +67,44 @@ export default function Hero({ onOpenResume }: HeroProps) {
                 <div className="w-0 h-0 border-l-6 border-l-transparent border-r-6 border-r-transparent border-t-6 border-t-purple-500/40 mx-auto mt-[-1px] lg:ml-8" />
               </div>
 
-              {/* Glowing Avatar Frame */}
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full flex items-center justify-center p-2 bg-gradient-to-tr from-purple-800/40 via-violet-600/30 to-transparent border border-purple-500/30 shadow-2xl shadow-purple-900/40 group">
-                {/* Glow ring */}
-                <div className="absolute inset-0 rounded-full bg-purple-600/20 blur-2xl pointer-events-none" />
+              {/* Premium Photo Frame */}
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 group flex items-center justify-center">
 
-                <div className="w-full h-full rounded-full bg-[#1A0A30] flex flex-col items-center justify-center text-center border border-white/10 relative overflow-hidden">
+                {/* === Outer ambient glow === */}
+                <div className="avatar-glow-pulse absolute inset-[-12px] rounded-full bg-gradient-to-tr from-violet-600/30 via-purple-500/20 to-fuchsia-600/25 blur-2xl pointer-events-none" />
+
+                {/* === Spinning gradient border ring === */}
+                <div className="avatar-ring-spin absolute inset-0 rounded-full p-[3px]"
+                  style={{
+                    background: "conic-gradient(from 0deg, #7C3AED, #A855F7, #C084FC, #DDD6FE, #7C3AED, #581C87, #7C3AED)",
+                  }}
+                >
+                  <div className="w-full h-full rounded-full bg-[#110720]" />
+                </div>
+
+                {/* === Static soft border ring (behind) === */}
+                <div className="absolute inset-[3px] rounded-full border border-purple-400/20 pointer-events-none z-10" />
+
+                {/* === Photo container === */}
+                <div className="relative w-[calc(100%-16px)] h-[calc(100%-16px)] rounded-full overflow-hidden z-20 shadow-2xl shadow-purple-950/80">
                   {!imageError && PERSONAL_INFO.avatar ? (
-                    <div className="relative w-full h-full rounded-full overflow-hidden">
+                    <>
                       <Image
                         src={PERSONAL_INFO.avatar}
                         alt={PERSONAL_INFO.name}
                         fill
-                        sizes="(max-width: 640px) 256px, 320px"
-                        className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 640px) 248px, 308px"
+                        className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                         onError={() => setImageError(true)}
                         priority
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-purple-950/60 via-transparent to-transparent pointer-events-none" />
-                    </div>
+                      {/* Bottom vignette for premium look */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-purple-950/50 via-transparent to-transparent pointer-events-none" />
+                      {/* Glass shine shimmer at top */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none rounded-full" />
+                    </>
                   ) : (
-                    <div className="p-6 flex flex-col items-center justify-center">
+                    <div className="w-full h-full bg-[#1A0A30] flex flex-col items-center justify-center text-center p-6">
                       <div className="w-24 h-24 rounded-2xl bg-gradient-to-tr from-purple-600 to-violet-500 flex items-center justify-center shadow-lg shadow-purple-900 mb-3">
                         <span className="text-4xl font-extrabold text-white">AR</span>
                       </div>
