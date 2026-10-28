@@ -13,8 +13,11 @@ import {
   Linkedin,
   Github,
   ArrowUpRight,
+  Radio,
+  Zap,
 } from "lucide-react";
 import { PERSONAL_INFO } from "@/lib/constants";
+import TiltCard3D from "@/components/ui/TiltCard3D";
 
 interface FormState {
   name: string;
@@ -51,26 +54,26 @@ export default function Contact() {
     setErrorMsg("");
     setIsSubmitting(true);
 
-    // Simulate sending message
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
       setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 800);
+    }, 700);
   };
 
   return (
-    <section id="contact" className="space-y-8">
+    <section id="contact" className="space-y-8 relative">
       {/* Section Header */}
       <div>
-        <span className="text-xs font-mono uppercase tracking-wider text-purple-400">
-          Get In Touch
-        </span>
-        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mt-1">
-          Let's Build Something Together
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono mb-2">
+          <Radio className="w-3.5 h-3.5 animate-pulse" />
+          <span>TRANSMISSION CHANNEL // DIRECT ACCESS</span>
+        </div>
+        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-1">
+          Initiate Direct Collaboration
         </h2>
         <p className="text-sm text-zinc-400 mt-2 max-w-xl">
-          I'm actively seeking entry-level software engineering and Java Full Stack roles. Drop me a line or connect directly.
+          I am actively seeking software engineering and Java Full Stack opportunities. Transmit a dispatch or connect across professional channels.
         </p>
       </div>
 
@@ -78,185 +81,203 @@ export default function Contact() {
         {/* Contact Info Column (5 cols) */}
         <div className="md:col-span-5 space-y-4">
           {/* Quick Copy Email Card */}
-          <div className="framer-card p-5 space-y-3">
-            <span className="text-xs font-mono text-zinc-500 uppercase tracking-wider">
-              Direct Contact
-            </span>
+          <TiltCard3D
+            intensity={8}
+            glowColor="rgba(6, 182, 212, 0.25)"
+            className="p-5"
+          >
+            <div className="space-y-3">
+              <span className="text-xs font-mono text-cyan-400 font-semibold uppercase tracking-wider block">
+                Direct Electronic Mail
+              </span>
 
-            <div className="flex items-center justify-between gap-2">
-              <div className="truncate">
-                <p className="text-sm font-semibold text-white truncate">
-                  {PERSONAL_INFO.email}
-                </p>
-                <p className="text-xs text-zinc-500 font-mono mt-0.5">
-                  Fastest response
-                </p>
+              <div className="flex items-center justify-between gap-2">
+                <div className="truncate">
+                  <p className="text-sm font-bold text-white truncate">
+                    {PERSONAL_INFO.email}
+                  </p>
+                  <p className="text-xs text-zinc-400 font-mono mt-0.5">
+                    Guaranteed response within 24h
+                  </p>
+                </div>
+
+                <button
+                  onClick={handleCopyEmail}
+                  className="p-2.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] text-zinc-300 hover:text-white transition-all flex-shrink-0"
+                  title="Copy email to clipboard"
+                >
+                  {copiedEmail ? (
+                    <Check className="w-4 h-4 text-cyan-400" />
+                  ) : (
+                    <Copy className="w-4 h-4" />
+                  )}
+                </button>
               </div>
 
-              <button
-                onClick={handleCopyEmail}
-                className="p-2 rounded-lg bg-white/[0.06] hover:bg-white/[0.12] text-zinc-300 hover:text-white transition-colors flex-shrink-0"
-                title="Copy email to clipboard"
-              >
-                {copiedEmail ? (
-                  <Check className="w-4 h-4 text-emerald-400" />
-                ) : (
-                  <Copy className="w-4 h-4" />
-                )}
-              </button>
+              {copiedEmail && (
+                <p className="text-xs text-cyan-400 font-mono">
+                  ✔ Address copied to clipboard!
+                </p>
+              )}
             </div>
+          </TiltCard3D>
 
-            {copiedEmail && (
-              <p className="text-xs text-emerald-400 font-mono">
-                ✓ Email copied to clipboard!
-              </p>
-            )}
-          </div>
+          {/* Network Channels Card */}
+          <TiltCard3D
+            intensity={8}
+            glowColor="rgba(139, 92, 246, 0.25)"
+            className="p-5"
+          >
+            <div className="space-y-3">
+              <span className="text-xs font-mono text-purple-400 font-semibold uppercase tracking-wider block">
+                Network Coordinates
+              </span>
 
-          {/* Social Links */}
-          <div className="framer-card p-5 space-y-3">
-            <span className="text-xs font-mono text-zinc-500 uppercase tracking-wider">
-              Profiles & Network
-            </span>
+              <div className="space-y-2">
+                <a
+                  href={PERSONAL_INFO.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between p-2.5 rounded-xl hover:bg-white/[0.04] text-zinc-300 hover:text-white transition-colors text-xs font-mono"
+                >
+                  <div className="flex items-center gap-2.5">
+                    <Linkedin className="w-4 h-4 text-cyan-400" />
+                    <span>LinkedIn Network</span>
+                  </div>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500" />
+                </a>
 
-            <div className="space-y-2">
-              <a
-                href={PERSONAL_INFO.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between p-2 rounded-lg hover:bg-white/[0.04] text-zinc-300 hover:text-white transition-colors text-xs"
-              >
-                <div className="flex items-center gap-2.5">
-                  <Linkedin className="w-4 h-4 text-purple-400" />
-                  <span>LinkedIn Profile</span>
-                </div>
-                <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500" />
-              </a>
+                <a
+                  href={PERSONAL_INFO.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between p-2.5 rounded-xl hover:bg-white/[0.04] text-zinc-300 hover:text-white transition-colors text-xs font-mono"
+                >
+                  <div className="flex items-center gap-2.5">
+                    <Github className="w-4 h-4 text-pink-400" />
+                    <span>GitHub Artifacts</span>
+                  </div>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500" />
+                </a>
 
-              <a
-                href={PERSONAL_INFO.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between p-2 rounded-lg hover:bg-white/[0.04] text-zinc-300 hover:text-white transition-colors text-xs"
-              >
-                <div className="flex items-center gap-2.5">
-                  <Github className="w-4 h-4 text-purple-400" />
-                  <span>GitHub Repositories</span>
-                </div>
-                <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500" />
-              </a>
-
-              <div className="flex items-center justify-between p-2 text-zinc-400 text-xs">
-                <div className="flex items-center gap-2.5">
-                  <MapPin className="w-4 h-4 text-zinc-500" />
-                  <span>{PERSONAL_INFO.location}</span>
+                <div className="flex items-center justify-between p-2.5 text-zinc-400 text-xs font-mono">
+                  <div className="flex items-center gap-2.5">
+                    <MapPin className="w-4 h-4 text-zinc-500" />
+                    <span>{PERSONAL_INFO.location}</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </TiltCard3D>
         </div>
 
         {/* Contact Form Column (7 cols) */}
-        <div className="md:col-span-7 framer-card p-6 sm:p-7">
-          {submitted ? (
-            <div className="py-10 text-center space-y-3">
-              <div className="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
-                <CheckCircle2 className="w-6 h-6" />
+        <div className="md:col-span-7">
+          <TiltCard3D
+            intensity={6}
+            glowColor="rgba(236, 72, 153, 0.2)"
+            className="p-6 sm:p-8"
+          >
+            {submitted ? (
+              <div className="py-10 text-center space-y-3">
+                <div className="w-14 h-14 rounded-full bg-cyan-500/10 border border-cyan-400 text-cyan-400 flex items-center justify-center mx-auto shadow-lg shadow-cyan-950/50">
+                  <CheckCircle2 className="w-7 h-7" />
+                </div>
+                <h3 className="text-xl font-bold text-white">
+                  Transmission Dispatched
+                </h3>
+                <p className="text-xs text-zinc-400 max-w-sm mx-auto">
+                  Thank you for reaching out. Your dispatch has been received and logged.
+                </p>
+                <button
+                  onClick={() => setSubmitted(false)}
+                  className="mt-4 text-xs font-mono text-cyan-400 hover:text-cyan-300 font-semibold"
+                >
+                  Send another dispatch
+                </button>
               </div>
-              <h3 className="text-lg font-bold text-white">
-                Message Sent!
-              </h3>
-              <p className="text-xs text-zinc-400 max-w-sm mx-auto">
-                Thank you for reaching out. I'll get back to you as soon as possible.
-              </p>
-              <button
-                onClick={() => setSubmitted(false)}
-                className="mt-4 text-xs text-purple-400 hover:text-purple-300 font-medium"
-              >
-                Send another message
-              </button>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                  <div className="space-y-1">
+                    <label className="text-xs font-mono text-zinc-400">
+                      IDENTIFIER / NAME *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
+                      placeholder="e.g. Recruit Lead"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-black/60 border border-white/[0.08] text-white placeholder-zinc-600 text-xs font-mono focus:outline-none focus:border-cyan-400 transition-colors"
+                    />
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="text-xs font-mono text-zinc-400">
+                      RETURN ADDRESS / EMAIL *
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
+                      placeholder="lead@company.com"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-black/60 border border-white/[0.08] text-white placeholder-zinc-600 text-xs font-mono focus:outline-none focus:border-cyan-400 transition-colors"
+                    />
+                  </div>
+                </div>
+
                 <div className="space-y-1">
-                  <label className="text-xs font-medium text-zinc-400">
-                    Your Name *
+                  <label className="text-xs font-mono text-zinc-400">
+                    SUBJECT TOPIC
                   </label>
                   <input
                     type="text"
-                    required
-                    value={formData.name}
+                    value={formData.subject}
                     onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
+                      setFormData({ ...formData, subject: e.target.value })
                     }
-                    placeholder="e.g. Alex"
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white placeholder-zinc-600 text-xs focus:outline-none focus:border-purple-500 transition-colors"
+                    placeholder="Full Stack Opportunity / Technical Interview"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-black/60 border border-white/[0.08] text-white placeholder-zinc-600 text-xs font-mono focus:outline-none focus:border-cyan-400 transition-colors"
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-xs font-medium text-zinc-400">
-                    Email Address *
+                  <label className="text-xs font-mono text-zinc-400">
+                    DISPATCH CONTENT *
                   </label>
-                  <input
-                    type="email"
+                  <textarea
                     required
-                    value={formData.email}
+                    rows={4}
+                    value={formData.message}
                     onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
+                      setFormData({ ...formData, message: e.target.value })
                     }
-                    placeholder="alex@example.com"
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white placeholder-zinc-600 text-xs focus:outline-none focus:border-purple-500 transition-colors"
+                    placeholder="Hi Aathidasan, we reviewed your Java & AI portfolio..."
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-black/60 border border-white/[0.08] text-white placeholder-zinc-600 text-xs font-mono focus:outline-none focus:border-cyan-400 transition-colors resize-none"
                   />
                 </div>
-              </div>
 
-              <div className="space-y-1">
-                <label className="text-xs font-medium text-zinc-400">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  value={formData.subject}
-                  onChange={(e) =>
-                    setFormData({ ...formData, subject: e.target.value })
-                  }
-                  placeholder="Job Opportunity / Project Collaboration"
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white placeholder-zinc-600 text-xs focus:outline-none focus:border-purple-500 transition-colors"
-                />
-              </div>
+                {errorMsg && (
+                  <p className="text-xs text-rose-400 font-mono">{errorMsg}</p>
+                )}
 
-              <div className="space-y-1">
-                <label className="text-xs font-medium text-zinc-400">
-                  Message *
-                </label>
-                <textarea
-                  required
-                  rows={4}
-                  value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
-                  placeholder="Hi Aathidasan, I came across your portfolio..."
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white placeholder-zinc-600 text-xs focus:outline-none focus:border-purple-500 transition-colors resize-none"
-                />
-              </div>
-
-              {errorMsg && (
-                <p className="text-xs text-rose-400 font-mono">{errorMsg}</p>
-              )}
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full py-2.5 rounded-xl bg-white text-black hover:bg-zinc-200 font-medium text-xs transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
-              >
-                <Send className="w-3.5 h-3.5" />
-                <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
-              </button>
-            </form>
-          )}
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 via-purple-600 to-pink-500 hover:from-cyan-400 hover:to-pink-400 text-white font-mono font-bold text-xs transition-all flex items-center justify-center gap-2 shadow-lg shadow-purple-950/50 disabled:opacity-50"
+                >
+                  <Send className="w-3.5 h-3.5" />
+                  <span>{isSubmitting ? "TRANSMITTING..." : "DISPATCH TRANSMISSION"}</span>
+                </button>
+              </form>
+            )}
+          </TiltCard3D>
         </div>
       </div>
     </section>

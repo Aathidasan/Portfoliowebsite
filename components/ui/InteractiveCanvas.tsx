@@ -1,56 +1,60 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useReducedMotion } from "@/hooks/useReducedMotion";
 
-interface Particle {
+interface Particle3D {
   x: number;
   y: number;
+  z: number;
   vx: number;
   vy: number;
-  size: number;
-  alpha: number;
-  baseAlpha: number;
+  vz: number;
+  baseRadius: number;
   color: string;
+  alpha: number;
 }
 
 export default function InteractiveCanvas() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const prefersReduced = useReducedMotion();
 
   useEffect(() => {
-    if (prefersReduced) return;
-
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext("2d", { alpha: true });
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let animationFrameId: number;
+    let animId: number;
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    // Monochromatic clean studio particles
-    const colors = ["#FFFFFF", "#E4E4E7", "#A1A1AA", "#71717A"];
-    const particleCount = Math.min(width > 768 ? 40 : 18, 45);
+    const fov = 400; // 3D Field of view
+    const particleCount = width > 768 ? 75 : 35;
+    const particles: Particle3D[] = [];
 
-    const particles: Particle[] = [];
-    const mouse = { x: -1000, y: -1000, radius: 120 };
+    // Higgsfield color spectrum
+    const colors = ["#06B6D4", "#8B5CF6", "#C084FC", "#38BDF8", "#EC4899"];
 
     for (let i = 0; i < particleCount; i++) {
-      const baseAlpha = Math.random() * 0.3 + 0.1;
       particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        size: Math.random() * 1.5 + 0.8,
-        alpha: baseAlpha,
-        baseAlpha,
+        x: (Math.random() - 0.5) * width * 1.5,
+        y: (Math.random() - 0.5) * height * 1.5,
+        z: Math.random() * fov + 50,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        vz: (Math.random() - 0.5) * 0.3,
+        baseRadius: Math.random() * 2 + 1,
         color: colors[Math.floor(Math.random() * colors.length)],
+        alpha: Math.random() * 0.6 + 0.2,
       });
     }
+
+    const mouse = { x: 0, y: 0, targetX: 0, targetY: 0 };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      mouse.targetX = (e.clientX - width / 2) * 0.3;
+      mouse.targetY = (e.clientY - height / 2) * 0.3;
+    };
 
     const handleResize = () => {
       if (!canvas) return;
@@ -58,97 +62,99 @@ export default function InteractiveCanvas() {
       height = canvas.height = window.innerHeight;
     };
 
-    const handleMouseMove = (e: MouseEvent) => {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
-    };
-
-    const handleMouseLeave = () => {
-      mouse.x = -1000;
-      mouse.y = -1000;
-    };
-
-    window.addEventListener("resize", handleResize);
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
-    window.addEventListener("mouseleave", handleMouseLeave);
+    window.addEventListener("resize", handleResize);
 
     const render = () => {
+      // Smooth mouse interpolation
+      mouse.x += (mouse.targetX - mouse.x) * 0.05;
+      mouse.y += (mouse.targetY - mouse.y) * 0.05;
+
       ctx.clearRect(0, 0, width, height);
 
-      // Render connected lines between nearby particles
+      const centerX = width / 2 + mouse.x * 0.2;
+      const centerY = height / 2 + mouse.y * 0.2;
+
+      // Update and project 3D particles
+      const projected: { x: number; y: number; r: number; color: string; alpha: number }[] = [];
+
       for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
+        const p = particles[i];
+
+        p.x += p.vx;
+        p.y += p.vy;
+        p.z += p.vz;
+
+        // Wrap around boundaries
+        if (p.z <= 10) p.z = fov;
+        if (p.z > fov) p.z = 10;
+        if (p.x < -width) p.x = width;
+        if (p.x > width) p.x = -width;
+        if (p.y < -height) p.y = height;
+        if (p.y > height) p.y = -height;
+
+        // 3D Perspective Projection formula
+        const scale = fov / (fov + p.z);
+        const projX = centerX + p.x * scale;
+        const projY = centerY + p.y * scale;
+        const projR = p.baseRadius * scale;
+
+        projected.push({
+          x: projX,
+          y: projY,
+          r: projR,
+          color: p.color,
+          alpha: p.alpha * (scale * 1.2),
+        });
+
+        // Draw particle
+        ctx.beginPath();
+        ctx.arc(projX, projY, Math.max(0.5, projR), 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = Math.min(1, Math.max(0.05, p.alpha * scale));
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = p.color;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+
+      // Draw connective quantum filaments between nearby nodes
+      ctx.lineWidth = 0.5;
+      for (let i = 0; i < projected.length; i++) {
+        for (let j = i + 1; j < projected.length; j++) {
+          const dx = projected[i].x - projected[j].x;
+          const dy = projected[i].y - projected[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 120) {
-            const lineAlpha = (1 - dist / 120) * 0.08;
+          if (dist < 110) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(255, 255, 255, ${lineAlpha})`;
-            ctx.lineWidth = 0.8;
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.moveTo(projected[i].x, projected[i].y);
+            ctx.lineTo(projected[j].x, projected[j].y);
+            ctx.strokeStyle = projected[i].color;
+            ctx.globalAlpha = (1 - dist / 110) * 0.18;
             ctx.stroke();
           }
         }
       }
 
-      // Update and render particles
-      for (let i = 0; i < particles.length; i++) {
-        const p = particles[i];
-
-        // Mouse interaction
-        const dx = mouse.x - p.x;
-        const dy = mouse.y - p.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-
-        if (dist < mouse.radius) {
-          const force = (1 - dist / mouse.radius) * 1.2;
-          p.x -= (dx / dist) * force;
-          p.y -= (dy / dist) * force;
-          p.alpha = Math.min(0.8, p.baseAlpha + 0.4);
-        } else {
-          p.alpha = p.baseAlpha;
-        }
-
-        p.x += p.vx;
-        p.y += p.vy;
-
-        // Wrap edges
-        if (p.x < 0) p.x = width;
-        if (p.x > width) p.x = 0;
-        if (p.y < 0) p.y = height;
-        if (p.y > height) p.y = 0;
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = p.color;
-        ctx.globalAlpha = p.alpha;
-        ctx.fill();
-        ctx.globalAlpha = 1;
-      }
-
-      animationFrameId = requestAnimationFrame(render);
+      ctx.globalAlpha = 1;
+      animId = requestAnimationFrame(render);
     };
 
     render();
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      cancelAnimationFrame(animId);
       window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseleave", handleMouseLeave);
-      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener("resize", handleResize);
     };
-  }, [prefersReduced]);
-
-  if (prefersReduced) return null;
+  }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      aria-hidden="true"
-      className="fixed inset-0 pointer-events-none z-0 opacity-40"
+      className="fixed inset-0 pointer-events-none z-0 opacity-80"
+      style={{ filter: "blur(0.2px)" }}
     />
   );
 }
