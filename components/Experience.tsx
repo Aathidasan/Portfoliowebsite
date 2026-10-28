@@ -2,100 +2,85 @@
 
 import { motion } from "framer-motion";
 import {
-  Coffee,
-  Cpu,
-  Layers,
-  BarChart3,
-  ArrowRight,
-  ExternalLink,
+  Briefcase,
+  Calendar,
+  MapPin,
+  CheckCircle2,
+  ArrowUpRight,
 } from "lucide-react";
 import { EXPERIENCES } from "@/lib/constants";
 
-const ICON_MAP: Record<string, any> = {
-  "training-fullstack": Coffee,
-  "internship-the-mind-it": Cpu,
-  "internship-novitech-fullstack": Layers,
-  "internship-novitech-analytics": BarChart3,
-};
-
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 px-6 relative">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4 text-center">
-          Work Experience
+    <section id="experience" className="space-y-8">
+      {/* Section Header */}
+      <div>
+        <span className="text-xs font-mono uppercase tracking-wider text-purple-400">
+          Work History
+        </span>
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mt-1">
+          Experience & Internships
         </h2>
-        <p className="text-center text-white/70 text-sm sm:text-base mb-12 max-w-2xl mx-auto">
-          Industry-oriented internships and professional full stack development training.
+        <p className="text-sm text-zinc-400 mt-2 max-w-xl">
+          Practical exposure gained through hands-on industry internships and focused engineering courses.
         </p>
+      </div>
 
-        {/* 2x2 Grid Matching Ibrahim Memon Portfolio */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {EXPERIENCES.map((item, idx) => {
-            const Icon = ICON_MAP[item.id] || Coffee;
+      {/* Experience Stack */}
+      <div className="space-y-4">
+        {EXPERIENCES.map((exp, idx) => (
+          <div
+            key={exp.id}
+            className="framer-card p-6 sm:p-7 space-y-4"
+          >
+            {/* Header */}
+            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+              <div>
+                <span className="text-xs font-mono uppercase tracking-wider text-purple-400 block mb-1">
+                  {exp.type === "internship" ? "Industry Internship" : "Technical Course"}
+                </span>
+                <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+                  {exp.role}
+                </h3>
+                <p className="text-sm text-zinc-300 font-medium mt-0.5">
+                  {exp.organization}
+                  <span className="text-zinc-500 font-normal"> • {exp.location}</span>
+                </p>
+              </div>
 
-            return (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: idx * 0.08 }}
-                className="bg-gradient-to-r from-slate-950 via-purple-950/80 to-slate-950 backdrop-blur-sm rounded-xl p-6 border-t-3 border-purple-700 hover:shadow-2xl hover:shadow-purple-950 transition-all duration-300 flex flex-col justify-between group"
-              >
-                <div>
-                  <div className="flex items-start justify-between gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-purple-900/40 border border-purple-500/30 flex items-center justify-center text-purple-300 flex-shrink-0 group-hover:border-purple-400 transition-colors">
-                      <Icon className="w-6 h-6" />
-                    </div>
+              <span className="self-start sm:self-auto text-xs font-mono text-zinc-400 bg-white/[0.04] px-3 py-1 rounded-full border border-white/[0.06] whitespace-nowrap">
+                {exp.period}
+              </span>
+            </div>
 
-                    <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-white/10 text-purple-300 border border-purple-500/30">
-                      {item.period}
-                    </span>
-                  </div>
+            {/* Description */}
+            <p className="text-sm text-zinc-300 leading-relaxed">
+              {exp.description}
+            </p>
 
-                  <h3 className="text-xl font-semibold text-white mb-1">
-                    {item.role}
-                  </h3>
-                  <p className="text-purple-400 font-medium text-xs mb-3">
-                    {item.organization} • {item.location}
-                  </p>
-
-                  <p className="text-white/70 text-sm leading-relaxed mb-4">
-                    {item.description}
-                  </p>
-
-                  <ul className="space-y-1.5 mb-4 text-xs text-white/80">
-                    {item.highlights.map((h, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-purple-400 mt-1.5 flex-shrink-0" />
-                        <span>{h}</span>
-                      </li>
-                    ))}
-                  </ul>
+            {/* Highlights */}
+            <div className="space-y-1.5 pt-1">
+              {exp.highlights.map((item, hIdx) => (
+                <div key={hIdx} className="flex items-start gap-2 text-xs text-zinc-400">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-purple-400 flex-shrink-0 mt-0.5" />
+                  <span>{item}</span>
                 </div>
+              ))}
+            </div>
 
-                <div className="pt-3 border-t border-white/10 flex items-center justify-between">
-                  <div className="flex flex-wrap gap-1.5">
-                    {item.technologies.slice(0, 3).map((t) => (
-                      <span key={t} className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-purple-200 border border-white/10">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-
-                  <a
-                    href="#lab"
-                    className="text-purple-400 hover:text-purple-300 font-medium text-sm transition-colors inline-flex items-center gap-1 group-hover:translate-x-0.5"
-                  >
-                    <span>LEARN MORE</span>
-                    <span>→</span>
-                  </a>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+            {/* Technologies */}
+            <div className="flex flex-wrap gap-1.5 pt-2 border-t border-white/[0.06]">
+              {exp.technologies.map((tech, tIdx) => (
+                <span
+                  key={tIdx}
+                  className="framer-badge"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

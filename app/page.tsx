@@ -14,20 +14,20 @@ export default function Home() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#110720] text-white selection:bg-purple-500/40 selection:text-white">
-      {/* Sticky Header */}
+    <div className="min-h-screen bg-[#0A0A0C] text-white selection:bg-purple-500/30 selection:text-white">
+      {/* Framer Minimal Floating Header */}
       <Navbar onOpenResume={() => setIsResumeOpen(true)} />
 
-      {/* Main Sections */}
-      <main id="main-content">
+      {/* Main Single Column Container */}
+      <main id="main-content" className="max-w-3xl mx-auto px-6 pt-32 pb-24 space-y-24">
         <Hero onOpenResume={() => setIsResumeOpen(true)} />
-        <Experience />
         <About />
+        <Experience />
         <Projects />
         <Contact />
       </main>
 
-      {/* Footer */}
+      {/* Minimal Footer */}
       <Footer />
 
       {/* Full Resume Modal */}

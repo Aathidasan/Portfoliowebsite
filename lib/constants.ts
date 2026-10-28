@@ -26,12 +26,13 @@ export const PERSONAL_INFO = {
   phone: "+91-9566095628",
   email: "aathidasan7@gmail.com",
   linkedin: "https://www.linkedin.com/in/aathi-dasan-386513352",
+  github: "https://github.com/Aathidasan/Portfoliowebsite",
   portfolioUrl: "https://aathidasan-ai-portfoli-craft.lovable.app",
   avatar: "/profile.jpg",
   heroBio:
     "I’m a passionate software developer fresher focused on Java, web technologies, and AI, building practical solutions while continuously improving my development skills.",
   summary:
-    "B.Sc. Information Technology graduate with a CGPA of 8.8/10 and aspiring Java Full Stack Developer. Strong foundation in Java, Python, JavaScript, React, SQL, REST APIs, Git, and web development. Completed industry-oriented internships in Artificial Intelligence, Full Stack Development, and Data Analytics. Hands-on experience developing AI-based computer vision applications and web-based projects. Interested in software development, problem solving, and learning modern technologies.",
+    "B.Sc. Information Technology graduate and aspiring Java Full Stack Developer. Strong foundation in Java, Python, JavaScript, React, SQL, REST APIs, Git, and web development. Completed industry-oriented internships in Artificial Intelligence, Full Stack Development, and Data Analytics. Hands-on experience developing AI-based computer vision applications and web-based projects. Interested in software development, problem solving, and learning modern technologies.",
 };
 
 export const STATISTICS = [

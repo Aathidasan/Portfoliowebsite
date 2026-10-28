@@ -1,21 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Fira_Code } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const firaCode = Fira_Code({
-  subsets: ["latin"],
-  variable: "--font-fira-code",
-  display: "swap",
-});
-
 export const viewport: Viewport = {
-  themeColor: "#110720",
+  themeColor: "#0A0A0C",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -28,7 +15,7 @@ export const metadata: Metadata = {
     template: "%s | Aathidasan R",
   },
   description:
-    "Aathidasan R is a Java Full Stack Developer and B.Sc. IT graduate (CGPA: 8.8/10) with practical experience in AI computer vision, Python, React, Flask, and SQL.",
+    "Aathidasan R is a Java Full Stack Developer and B.Sc. IT graduate with practical experience in AI computer vision, Python, React, Flask, and SQL.",
   keywords: [
     "Aathidasan R",
     "Java Full Stack Developer",
@@ -39,7 +26,6 @@ export const metadata: Metadata = {
     "Python",
     "SQL",
     "React",
-    "QSpiders Velachery",
     "PRIST University",
     "AI Theft Detection System",
   ],
@@ -51,14 +37,14 @@ export const metadata: Metadata = {
     url: "https://aathidasan-ai-portfoli-craft.lovable.app",
     title: "Aathidasan R | Java Full Stack Developer & AI Enthusiast",
     description:
-      "Aathidasan R is a Java Full Stack Developer and B.Sc. IT graduate (CGPA: 8.8/10) with practical experience in AI computer vision, Python, React, Flask, and SQL.",
+      "Aathidasan R is a Java Full Stack Developer and B.Sc. IT graduate with practical experience in AI computer vision, Python, React, Flask, and SQL.",
     siteName: "Aathidasan R Portfolio",
   },
   twitter: {
     card: "summary_large_image",
     title: "Aathidasan R | Java Full Stack Developer & AI Enthusiast",
     description:
-      "Aathidasan R is a Java Full Stack Developer and B.Sc. IT graduate (CGPA: 8.8/10) with practical experience in AI computer vision, Python, React, Flask, and SQL.",
+      "Aathidasan R is a Java Full Stack Developer and B.Sc. IT graduate with practical experience in AI computer vision, Python, React, Flask, and SQL.",
   },
   robots: {
     index: true,
@@ -80,7 +66,7 @@ export default function RootLayout({
     name: "Aathidasan R",
     jobTitle: "Java Full Stack Developer",
     description:
-      "B.Sc. Information Technology graduate with a CGPA of 8.8/10 and aspiring Java Full Stack Developer with strong foundation in Java, Python, React, SQL, and AI computer vision.",
+      "B.Sc. Information Technology graduate and aspiring Java Full Stack Developer with strong foundation in Java, Python, React, SQL, and AI computer vision.",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Nagapattinam / Chennai",
@@ -104,7 +90,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${firaCode.variable} font-sans bg-[#110720] text-white antialiased min-h-screen relative selection:bg-purple-500/40 selection:text-white`}
+        className="font-sans bg-[#0A0A0C] text-white antialiased min-h-screen relative selection:bg-purple-500/30 selection:text-white"
       >
         <a
           href="#main-content"

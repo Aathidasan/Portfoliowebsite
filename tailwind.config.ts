@@ -10,12 +10,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#110720",
+        background: "#0A0A0C",
         surface: {
-          50: "#1E0B36",
-          100: "#1A0A30",
-          200: "#140826",
-          300: "#110720",
+          50: "#18181B",
+          100: "#121215",
+          200: "#0E0E11",
+          300: "#0A0A0C",
         },
         purple: {
           400: "#C084FC",
@@ -35,7 +35,8 @@ const config: Config = {
         '3': '3px',
       },
       boxShadow: {
-        'purple-glow': '0 0 35px -5px rgba(168, 85, 247, 0.4)',
+        'framer-glow': '0 0 50px -10px rgba(168, 85, 247, 0.15)',
+        'framer-card': '0 4px 20px -2px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08)',
       },
     },
   },
