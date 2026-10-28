@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import LaptopInterface from "@/components/LaptopInterface";
 import Experience from "@/components/Experience";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
@@ -21,6 +22,7 @@ export default function Home() {
       {/* Main Single Column Container */}
       <main id="main-content" className="max-w-3xl mx-auto px-6 pt-32 pb-24 space-y-24">
         <Hero onOpenResume={() => setIsResumeOpen(true)} />
+        <LaptopInterface />
         <About />
         <Experience />
         <Projects />
