@@ -36,11 +36,6 @@ export const PERSONAL_INFO = {
 
 export const STATISTICS = [
   {
-    value: "8.8",
-    label: "Graduation CGPA",
-    subtext: "PRIST University (8.8/10)",
-  },
-  {
     value: "2026",
     label: "Graduation Year",
     subtext: "B.Sc. Information Technology",
@@ -53,7 +48,12 @@ export const STATISTICS = [
   {
     value: "6 Mo",
     label: "Java Training",
-    subtext: "QSpiders Velachery",
+    subtext: "Full Stack Course",
+  },
+  {
+    value: "2+",
+    label: "Projects Built",
+    subtext: "AI & Web Applications",
   },
 ];
 
@@ -138,11 +138,11 @@ export interface ExperienceItem {
 
 export const EXPERIENCES: ExperienceItem[] = [
   {
-    id: "training-qspiders",
+    id: "training-fullstack",
     type: "training",
     role: "Java Full Stack Developer Training",
-    organization: "QSpiders",
-    location: "Velachery, Chennai",
+    organization: "Training Institute",
+    location: "Chennai, Tamil Nadu",
     period: "6-Month Course (Current)",
     status: "Active Training",
     description:
@@ -216,16 +216,14 @@ export const EDUCATION = {
   location: "Thanjavur, Tamil Nadu",
   period: "2023 – 2026",
   year: "2026",
-  cgpa: "8.8 / 10",
   status: "Graduating 2026",
-  badge: "CGPA: 8.8 / 10",
   description:
-    "Comprehensive academic curriculum in information technology, computer science, software engineering, databases, and programming logic with exceptional academic standing (8.8/10 CGPA).",
+    "Comprehensive academic curriculum in information technology, computer science, software engineering, databases, and programming logic.",
   highlights: [
-    "Exceptional Academic Performance with 8.8/10 CGPA",
     "Object-Oriented Programming & Software Engineering",
     "Relational Database Management Systems & SQL",
     "Web Basics, Networking, and Algorithmic Problem Solving",
+    "Data Structures, Algorithms & System Design Fundamentals",
   ],
   skills: ["Computer Science", "Database Systems", "Software Engineering", "OOP", "Algorithms"],
 };
@@ -331,7 +329,7 @@ export const CERTIFICATIONS = [
   },
   {
     title: "Java Development Training",
-    issuer: "QSpiders — Velachery, Chennai",
+    issuer: "Java Full Stack Program",
     badge: "Java / SQL",
   },
 ];

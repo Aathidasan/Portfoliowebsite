@@ -51,10 +51,7 @@ export default function About() {
                 </div>
 
                 <div className="text-right">
-                  <span className="inline-block px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/40 text-xs font-mono font-bold">
-                    CGPA: 8.8 / 10
-                  </span>
-                  <p className="text-[11px] font-mono text-white/60 mt-1">{EDUCATION.period}</p>
+                  <p className="text-[11px] font-mono text-white/60">{EDUCATION.period}</p>
                 </div>
               </div>
 

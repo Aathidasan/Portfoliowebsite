@@ -42,7 +42,7 @@ const TABS: CodeTab[] = [
     public static void main(String[] args) {
         AathidasanProfile dev = new AathidasanProfile();
         dev.displayMission();
-        // Training: QSpiders 6-Month Intensive Java Course
+        // Training: 6-Month Intensive Java Full Stack Course
     }
 }`,
     runOutput: `[BUILD] javac Main.java (compiled in 0.18s)

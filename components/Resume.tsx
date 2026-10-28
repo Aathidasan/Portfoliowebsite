@@ -41,7 +41,7 @@ export default function Resume({ onOpenResume }: ResumeProps) {
                 <span>•</span>
                 <div className="flex items-center gap-1.5">
                   <Briefcase className="w-4 h-4 text-zinc-300" />
-                  <span>QSpiders Java Course</span>
+                  <span>Java Full Stack Training</span>
                 </div>
                 <span>•</span>
                 <div className="flex items-center gap-1.5">

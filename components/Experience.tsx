@@ -12,7 +12,7 @@ import {
 import { EXPERIENCES } from "@/lib/constants";
 
 const ICON_MAP: Record<string, any> = {
-  "training-qspiders": Coffee,
+  "training-fullstack": Coffee,
   "internship-the-mind-it": Cpu,
   "internship-novitech-fullstack": Layers,
   "internship-novitech-analytics": BarChart3,

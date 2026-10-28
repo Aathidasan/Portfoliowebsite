@@ -109,7 +109,7 @@ export default function Hero({ onOpenResume }: HeroProps) {
                         <span className="text-4xl font-extrabold text-white">AR</span>
                       </div>
                       <h3 className="font-bold text-lg text-white">Aathidasan R</h3>
-                      <p className="text-xs text-purple-300 font-mono mt-0.5">B.Sc. IT • CGPA 8.8/10</p>
+                      <p className="text-xs text-purple-300 font-mono mt-0.5">B.Sc. IT • 2026</p>
                       <span className="mt-2 text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/40">
                         Java Full Stack Fresher
                       </span>
@@ -180,9 +180,7 @@ export default function Hero({ onOpenResume }: HeroProps) {
           </p>
 
           <p className="text-base lg:text-lg text-white/90 tracking-wide flex flex-wrap items-center justify-center lg:justify-start gap-2">
-            <span>Currently undergoing Java Full Stack Training at</span>
-            <span className="text-purple-400 font-semibold">QSpiders, Velachery (Chennai)</span>
-            <span>• Graduated B.Sc. IT (CGPA: 8.8/10)</span>
+            <span>Aspiring Java Full Stack Developer — open to exciting entry-level opportunities.</span>
           </p>
 
           <p className="text-base text-white/80 max-w-3xl mx-auto lg:mx-0 leading-relaxed pt-2">

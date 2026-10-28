@@ -127,7 +127,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                 <div className="flex justify-between items-start">
                   <div>
                     <h4 className="font-bold text-white text-sm">Java Development Training</h4>
-                    <p className="text-zinc-400 font-mono text-xs">QSpiders — Velachery, Chennai</p>
+                    <p className="text-zinc-400 font-mono text-xs">Java Full Stack Program — Chennai, Tamil Nadu</p>
                   </div>
                   <span className="studio-tag">
                     6-MONTH COURSE (CURRENT)
